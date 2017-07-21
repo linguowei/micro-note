@@ -1,12 +1,12 @@
 <template>
   <div class="Home">
-    <ul class="left-menu">
+    <ul class="left-menu" v-if="$route.path !== '/index'">
       <li class="logo">
         <router-link :to="{ path: '/' }">
           <img width="40" src="../assets/logo.svg">
         </router-link>
       </li>
-      <li class="menu-item">
+      <!-- <li class="menu-item">
         <Poptip placement="right" width="200" trigger="click" v-model="isShowAddPoptip">
           <Icon size="35" color="#80848f" type="ios-plus-outline"></Icon>
           <div class="api" slot="content">
@@ -16,6 +16,12 @@
             </Button-group>
           </div>
         </Poptip>
+      </li> -->
+      <li class="menu-item" @click="addNote">
+        <Icon size="35" color="#80848f" type="android-create"></Icon>
+      </li>
+      <li class="menu-item" @click="linkNote">
+        <Icon size="35" color="#80848f" type="usb"></Icon>
       </li>
       <li class="menu-item" @click="search">
         <Icon size="35" color="#80848f" type="ios-search-strong"></Icon>

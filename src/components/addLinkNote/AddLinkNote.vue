@@ -1,26 +1,71 @@
 <template>
   <div class="addLinkNote">
-    <input class="search-input" v-model="value1" placeholder="请输入URL来生成笔记" autofocus="autofocus"></input>
-    <div class="note-name">
-      目前暂不支持JS动态生成的网页
-    </div>
+    <transition name="fade">
+      <Row class="input-wrap" v-if="isShowInputWrap">
+        <Col span="24">
+          <input class="search-input" v-model="link" placeholder="请输入URL并回车来生成笔记" autofocus="autofocus" @keydown="generateNote($event)"></input>
+        </Col>
+        <Col span="24">
+          <div class="note-name">
+            注：暂不支持JS动态生成的网页
+          </div>
+        </Col>
+      </Row>
+      <preview-note v-if="isShowPreview" :title="preTitle" :content="preContent" @cancel="cancel"></preview-note>
+    </transition>
   </div>  
 </template>
 
 <script>
+import previewNote from './components/PreviewNote'
 export default {
   name: 'addLinkNote',
   data () {
     return {
-      value1: ''
+      link: '',
+      isShowInputWrap: true,
+      isShowPreview: false,
+      preTitle: '',
+      preContent: ''
     }
   },
   mounted () {
+  },
+  methods: {
+    generateNote: function (e) {
+      if (e.keyCode === 13) {
+        this.$Loading.start()
+        this.$http.post('/api/generateNote', {
+          link: this.link
+        }).then((res) => {
+          if (res.status === 200) {
+            this.preTitle = res.data.title
+            this.preContent = res.data.content
+            this.isShowInputWrap = false
+            this.isShowPreview = true
+            this.$Loading.finish()
+          }
+        })
+      }
+    },
+    cancel: function () {
+      this.isShowInputWrap = true
+      this.isShowPreview = false
+    }
+  },
+  components: {
+    previewNote
   }
 }
 </script>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+} 
 ::-webkit-input-placeholder { /* WebKit browsers */  
   color: #ececec;  
 }  
@@ -37,7 +82,12 @@ export default {
 }
 .addLinkNote{
   height: 100vh;
-  padding: 20vh 8vh 30vh 8vh;
+  padding: 1vh 8vh 30vh 8vh;
+}
+.input-wrap{
+  height:52px;
+  line-height:52px;
+  margin-top: 19vh;
 }
 .search-input{
   border-bottom: 1px solid #ccc;
@@ -46,7 +96,8 @@ export default {
   border: none;
   color: #ccc;
   height: 52px;
-  width: 84vh;
+  width: 100%;
+  overflow-x: scroll;
   font-size: 40px;
   outline: none;
 }

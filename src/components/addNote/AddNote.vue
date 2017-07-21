@@ -17,9 +17,12 @@
           </Dropdown-menu>
         </Dropdown>
       </Col>
-      <Col span="5" offset="11">
-        <Button class="btnCustomizeHover" type="ghost" icon="android-list">确认</Button>   
-        <Button class="btnCustomizeHover" type="ghost" icon="reply">取消</Button>     
+      <Col span="8">
+        <input class="note-title" placeholder="请输入笔记标题" autofocus="autofocus"></input>
+      </Col>
+      <Col span="8">
+        <Button class="btnCustomizeHover" type="ghost" icon="android-list">保存</Button>   
+        <Button class="btnCustomizeHover" type="ghost" icon="reply" @click="cacel">取消</Button>     
       </Col>
     </Row>
     <div v-markdownContentHeight>
@@ -41,21 +44,24 @@ export default {
   mounted () {
     const smde = new SimpleMDE({
       element: this.$refs.markdown,
-      autofocus: true,
+      autofocus: false,
       autosave: true,
       toolbar: ['bold', 'italic', 'strikethrough', 'heading', 'code', 'quote', 'unordered-list', 'ordered-list', 'clean-block', 'link', 'image', 'table', 'horizontal-rule', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
       styleSelectedText: false
     })
-    smde.value(smde.markdown('### h3 ```function(){}```'))
+    smde.value()
     smde.codemirror.on('change', () => {
       const value = smde.value()
       console.log(value)
     })
-    smde.togglePreview()
+    // smde.togglePreview()
   },
   methods: {
     selectTag: function (a) {
       console.log(a)
+    },
+    cacel: function () {
+      this.$router.go(-1)
     }
   },
   directives: {
@@ -74,8 +80,33 @@ export default {
 </script>
 
 <style scoped>
+::-webkit-input-placeholder { /* WebKit browsers */  
+  color: #ececec;  
+}  
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+  color: #ececec;  
+  opacity: 1;  
+}  
+::-moz-placeholder { /* Mozilla Firefox 19+ */  
+  color: #ececec;  
+  opacity: 1;  
+}  
+:-ms-input-placeholder { /* Internet Explorer 10+ */  
+  color: #ececec;  
+}
 .addNote{
   padding: 1rem;
+  margin: 0 8vh;
+}
+.addNote .note-title{
+  background-color: transparent;
+  border: none;
+  color: #ccc;
+  height: 24px;
+  width: 100%;
+  overflow-x: scroll;
+  font-size: 24px;
+  outline: none;
 }
 .addNote .editor-toolbar{
   border: none !important; 
