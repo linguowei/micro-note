@@ -2,15 +2,17 @@ const express = require('express');
 const read = require('node-readability');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 
 var resolve = file => path.resolve(__dirname, file);
+app.use(compression());
 app.use(express.static(resolve('../dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post('/api/generateNote', function (req, res) {
+app.post('/generateNote', function (req, res) {
   read(req.body.link, (err, article, meta) => {
     if (err) {
       res.status(500);
@@ -20,11 +22,12 @@ app.post('/api/generateNote', function (req, res) {
       title: article.title,
       content: article.content
     })
+    article.close();
   });
 });
 
 app.get('*', function(req, res) {
-  var html = fs.readFileSync(resolve('../dist/' + 'index.html'), 'utf-8');
+  const html = fs.readFileSync(resolve('../dist/' + 'index.html'), 'utf-8');
   res.send(html)
 });
 

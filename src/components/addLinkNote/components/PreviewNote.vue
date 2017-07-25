@@ -1,24 +1,13 @@
 <template>
   <div class="previewNote">
-    <Row class="tool-bar">
-      <Col span="8">
-        <Dropdown trigger="click" style="margin-left: 20px">
-          <a href="javascript:void(0)" style="font-size:13px;color:#80848f">
-            添加标签
-            <Icon type="arrow-down-b"></Icon>
-          </a>
-          <span>{{tagName}}</span>
-          <Dropdown-menu slot="list">
-            <Dropdown-item name="驴打滚">驴打滚</Dropdown-item>
-            <Dropdown-item>炸酱面</Dropdown-item>
-            <Dropdown-item>豆汁儿</Dropdown-item>
-            <Dropdown-item>冰糖葫芦</Dropdown-item>
-            <Dropdown-item>北京烤鸭</Dropdown-item>
-          </Dropdown-menu>
-        </Dropdown>
-      </Col>
-      <Col span="8">
+    <Row class="tool-bar" style="text-align:center">
+      <Col span="24">
         <h2 class="title">{{title}}</h2>   
+      </Col>
+    </Row>
+    <Row class="tool-bar">
+      <Col span="16">
+        <label-name @nameChange="labelNameChange"></label-name>
       </Col>
       <Col span="8">
         <Button class="btnCustomizeHover" type="ghost" icon="android-list">保存</Button>   
@@ -30,9 +19,12 @@
 </template>
 
 <script>
-// import marked from 'marked'
+import labelName from '../../common/Label'
 export default {
   name: 'previewNote',
+  components: {
+    labelName
+  },
   data () {
     return {
       tagName: ''
@@ -53,6 +45,9 @@ export default {
   methods: {
     cancel: function () {
       this.$emit('cancel')
+    },
+    labelNameChange: function (labelName) {
+      console.log(labelName, 'pre')
     }
   },
   directives: {
@@ -124,8 +119,8 @@ export default {
   text-overflow:ellipsis
 }
 .preview-wrap {
-  height: 87vh;
-  max-height: 87vh;
+  height: 82vh;
+  max-height: 82vh;
   overflow: auto;
   background-color: #fafafa;
   padding: 1vh;

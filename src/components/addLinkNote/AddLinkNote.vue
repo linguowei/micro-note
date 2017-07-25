@@ -20,6 +20,9 @@
 import previewNote from './components/PreviewNote'
 export default {
   name: 'addLinkNote',
+  components: {
+    previewNote
+  },
   data () {
     return {
       link: '',
@@ -52,9 +55,6 @@ export default {
       this.isShowInputWrap = true
       this.isShowPreview = false
     }
-  },
-  components: {
-    previewNote
   }
 }
 </script>

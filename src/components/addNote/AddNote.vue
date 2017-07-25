@@ -1,24 +1,13 @@
 <template>
   <div class="addNote">
-    <Row class="tool-bar">
-      <Col span="8">
-        <Dropdown trigger="click" style="margin-left: 20px" @on-click="selectTag">
-          <a href="javascript:void(0)" style="font-size:13px;color:#80848f">
-            添加标签
-            <Icon type="arrow-down-b"></Icon>
-          </a>
-          <span>{{tagName}}</span>
-          <Dropdown-menu slot="list">
-            <Dropdown-item name="驴打滚">驴打滚</Dropdown-item>
-            <Dropdown-item>炸酱面</Dropdown-item>
-            <Dropdown-item>豆汁儿</Dropdown-item>
-            <Dropdown-item>冰糖葫芦</Dropdown-item>
-            <Dropdown-item>北京烤鸭</Dropdown-item>
-          </Dropdown-menu>
-        </Dropdown>
-      </Col>
-      <Col span="8">
+    <Row class="tool-bar" style="text-align:center;">
+      <Col span="8" :offset="8">
         <input class="note-title" placeholder="请输入笔记标题" autofocus="autofocus"></input>
+      </Col>
+    </Row>
+    <Row class="tool-bar">
+      <Col span="16">
+        <label-name @nameChange="labelNameChange"></label-name>
       </Col>
       <Col span="8">
         <Button class="btnCustomizeHover" type="ghost" icon="android-list">保存</Button>   
@@ -32,10 +21,14 @@
 </template>
 
 <script>
+import labelName from '../common/Label'
 import SimpleMDE from 'simplemde'
 import '../../assets/simplemde.min.css'
 export default {
   name: 'addNote',
+  components: {
+    labelName
+  },
   data () {
     return {
       tagName: ''
@@ -62,6 +55,9 @@ export default {
     },
     cacel: function () {
       this.$router.go(-1)
+    },
+    labelNameChange: function (labelName) {
+      console.log(labelName, 'pre')
     }
   },
   directives: {
@@ -69,8 +65,8 @@ export default {
       bind: function (el) {
         setTimeout(() => {
           const codeMirror = el.querySelector('.CodeMirror')
-          codeMirror.style.height = window.innerHeight - 115 + 'px'
-          codeMirror.style.maxHeight = window.innerHeight - 115 + 'px'
+          codeMirror.style.height = window.innerHeight - 145 + 'px'
+          codeMirror.style.maxHeight = window.innerHeight - 145 + 'px'
           codeMirror.style.overflow = 'auto'
         }, 500)
       }
@@ -101,7 +97,7 @@ export default {
 .addNote .note-title{
   background-color: transparent;
   border: none;
-  color: #ccc;
+  color: #495060;
   height: 24px;
   width: 100%;
   overflow-x: scroll;

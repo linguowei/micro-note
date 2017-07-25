@@ -69,6 +69,11 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      // iview按需加载配置
+      { 
+        test: /iview.src.*?js$/, 
+        loader: 'babel-loader' 
       }
     ]
   }
