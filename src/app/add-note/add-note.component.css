@@ -1,0 +1,7 @@
+ @import './markdown-editor/simplemde.min.css'; 
+.add-note-wrap {
+    padding: 0 5rem;
+}
+.editor-toolbar{
+  color: #ccc;
+}

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/ionicons.min.css'; /* 图标库 */
+*{
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+a{
+  text-decoration: none;
+}
+a:hover, a:visited, a:link, a:active {
+  color: #495060
+}

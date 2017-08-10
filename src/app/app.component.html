@@ -1,0 +1,27 @@
+<div class="left-menu">
+  <ul>
+    <li class="logo">
+      <a [routerLink]="['/index']">
+        <img src="../assets/index.svg" width="35" height="35">
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/addNote']">
+        <div class="ion-edit icon"></div>新增
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/addLinkNote']">
+        <div class="ion-usb icon"></div>链接
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/search']">
+        <div class="ion-android-search icon"></div>搜索
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="content-wrap">
+  <router-outlet></router-outlet>
+</div>

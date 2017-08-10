@@ -1,0 +1,25 @@
+.icon{
+  font-size: 22px;
+}
+.left-menu{
+  width: 60px;
+  height: 100vh;
+  border-right: 1px solid #ececec;
+  float: left;
+}
+.left-menu > ul{
+  padding: 7px;
+}
+.left-menu > ul li{
+  text-align: center;
+  padding: 15px 0;
+  cursor: pointer;
+  font-size: 12px;
+}
+.left-menu .logo{
+  border-bottom: 1px solid #ececec;
+}
+.content-wrap{
+  overflow: hidden;
+  height: 100vh;
+}
