@@ -6,34 +6,8 @@
           <img width="40" src="../assets/logo.svg">
         </router-link>
       </li>
-      <!-- <li class="menu-item">
-        <Poptip placement="right" width="200" trigger="click" v-model="isShowAddPoptip">
-          <Icon size="35" color="#80848f" type="ios-plus-outline"></Icon>
-          <div class="api" slot="content">
-            <Button-group vertical>
-              <Button type="ghost" class="btnCustomizeHover" icon="network" @click="linkNote">输入链接生成笔记</Button>
-              <Button type="ghost" class="btnCustomizeHover" icon="android-create" @click="addNote">手动输入新建笔记</Button>
-            </Button-group>
-          </div>
-        </Poptip>
-      </li> -->
-      <li class="menu-item" @click="addNote">
-        <Icon size="35" color="#80848f" type="android-create"></Icon>
-      </li>
-      <li class="menu-item" @click="linkNote">
-        <Icon size="35" color="#80848f" type="usb"></Icon>
-      </li>
-      <li class="menu-item" @click="search">
-        <Icon size="35" color="#80848f" type="ios-search-strong"></Icon>
-      </li>
-      <li class="menu-item">
-        <Icon size="35" color="#80848f" type="android-list"></Icon>
-      </li>
-      <li class="menu-item">
-        <Icon size="35" color="#80848f" type="android-bookmark"></Icon>
-      </li>
-      <li class="menu-item-github">
-        <Icon size="35" color="#80848f" type="social-github"></Icon>
+      <li class="menu-item" v-for="(item,index) in menuList" :key="index" @click="switchRouting(item)">
+        <Icon size="35" color="#80848f" :type="item.iconType"></Icon>
       </li>
     </ul>
     <div class="content">
@@ -49,20 +23,24 @@ export default {
   name: 'Home',
   data () {
     return {
-      isShowAddPoptip: false
+      menuList: [
+        {routingName: 'addNote', iconType: 'android-create'},
+        {routingName: 'addLinkNote', iconType: 'usb'},
+        {routingName: 'search', iconType: 'ios-search-strong'},
+        {routingName: 'noteList', iconType: 'android-list'},
+        {routingName: 'noteBook', iconType: 'ios-book'},
+        {routingName: 'tag', iconType: 'ios-pricetags'},
+        {routingName: 'github', iconType: 'social-github'}
+      ]
     }
   },
   methods: {
-    addNote: function () {
-      this.isShowAddPoptip = false
-      this.$router.push({ path: 'addNote' })
-    },
-    linkNote: function () {
-      this.isShowAddPoptip = false
-      this.$router.push({ path: 'addLinkNote' })
-    },
-    search: function () {
-      this.$router.push({ path: 'search' })
+    switchRouting: function (data) {
+      if (data.routingName === 'github') {
+        window.open('https://github.com/linguowei/micro-note')
+        return
+      }
+      this.$router.push({ path: data.routingName })
     }
   }
 }
@@ -70,7 +48,7 @@ export default {
 
 <style scoped>
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
+  transition: opacity .2s
 }
 .fade-enter, .fade-leave-to {
   opacity: 0
