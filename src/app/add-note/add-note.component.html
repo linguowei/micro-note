@@ -2,8 +2,21 @@
   <div class="add-note-title">
     <input type="text" placeholder="请输入笔记标题">
   </div>
-  <div style="width:150px;">
-    <app-dropdown [Label]="label" [DropdownMenu]="dropdownMenu"></app-dropdown>
+  <div class="add-note-toolbar">
+    <div class="add-note-toolbar-label">
+      <div class="add-note-toolbar-dropdown">
+        <app-dropdown [Label]="label" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
+      </div>
+      <ul class="add-note-toolbar-labellist">
+        <li *ngFor="let item of labelList; let i=index">
+          <span>{{item.name}}</span>
+          <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="add-note-toolbar-btn">
+      <app-button [Icon]="'ion-checkmark-circled'">aaa</app-button>
+    </div>
   </div>
   <div myMarkdownEditor (MarkdownEditorValue)="markdownValueChange($event)">
     <textarea style="display:none"></textarea>

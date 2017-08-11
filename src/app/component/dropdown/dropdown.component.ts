@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -6,14 +6,12 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css'],
   animations: [
-    trigger('heroState', [
+    trigger('dropdownMenuState', [
       state('inactive', style({
         height: '0'
-        // transform: 'scale(0)'
       })),
       state('active',   style({
         height: '200px'
-        // transform: 'scale(1)'
       })),
       transition('inactive => active', animate('300ms ease-in')),
       transition('active => inactive', animate('300ms ease-out'))
@@ -21,24 +19,28 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ]
 })
 export class DropdownComponent implements OnInit {
-  hero = {
+  dropdownMenu = {
     state: 'inactive'
   }
   @Input() Label: string;
   @Input() DropdownMenu: Array<dropdownItem>;
-
+  @Output() SelectItem = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
     console.log(this.Label)
   }
 
-  toggleDropdownMenu(): void{
-    this.hero.state == 'active' ? this.hero.state = 'inactive' : this.hero.state = 'active'
+  private toggleDropdownMenu(): void{
+    this.dropdownMenu.state == 'active' ? this.dropdownMenu.state = 'inactive' : this.dropdownMenu.state = 'active'
+  }
+  private selectItem(data): void{
+    this.dropdownMenu.state = 'inactive'
+    this.SelectItem.emit(data)
   }
 }
 
-interface dropdownItem {
+export interface dropdownItem {
   name: object,
   id: number
 }

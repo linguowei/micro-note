@@ -1,11 +1,11 @@
 <div class="my-dropdown">
   <div class="my-dropdown-rel" (click)="toggleDropdownMenu()">
-    <a>{{Label}}</a>
-     <i class="ion-android-arrow-dropdown"></i> 
+    <a>{{Label || '未定义'}}</a>
+    <i class="ion-android-arrow-dropdown"></i> 
   </div>
-  <div class="my-dropdown-menu" [@heroState]="hero.state">
+  <div class="my-dropdown-menu" [@dropdownMenuState]="dropdownMenu.state">
     <ul>
-      <li *ngFor="let item of DropdownMenu">
+      <li *ngFor="let item of DropdownMenu" (click)="selectItem(item)">
         {{item.name}}
       </li>
     </ul>

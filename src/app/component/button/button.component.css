@@ -1,0 +1,17 @@
+.my-btn{
+  color: #495060;
+  outline: 0;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid dddee1;
+  white-space: nowrap;
+  padding: 6px 15px;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  vertical-align:middle
+}

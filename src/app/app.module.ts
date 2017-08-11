@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { IndexComponent } from './index/index.component';
 import { MarkdownEditorDirective } from './add-note/markdown-editor/markdown-editor.directive';
 import { DropdownComponent } from './component/dropdown/dropdown.component';
+import { ButtonComponent } from './component/button/button.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { DropdownComponent } from './component/dropdown/dropdown.component';
     SearchComponent,
     IndexComponent,
     MarkdownEditorDirective, // MarkdownEditor指令
-    DropdownComponent, // 自定义Dropdown组件
+    DropdownComponent, ButtonComponent, // 自定义Dropdown、Button组件
   ],
   imports: [
     BrowserModule,
