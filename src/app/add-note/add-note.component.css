@@ -1,7 +1,25 @@
  @import './markdown-editor/simplemde.min.css'; 
 .add-note-wrap {
-    padding: 0 5rem;
+  margin: 0 3rem;
+  padding: 1rem;
 }
 .editor-toolbar{
   color: #ccc;
+}
+.add-note-title{
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-note-title input{
+  width: 200px;
+  height: 30px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color:#999;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:#999;
 }

@@ -1,0 +1,38 @@
+::-webkit-scrollbar{
+  width: 0px;
+}
+.my-dropdown{
+  position: relative;
+  width: 100%;
+  min-width: 80px;
+}
+.my-dropdown-rel{
+  text-align: center;
+  cursor: pointer;
+}
+.my-dropdown-menu{
+  position: absolute;
+  top: 25px;
+  z-index: 99;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+  height: 0px;
+  overflow: hidden;
+}
+.my-dropdown-menu ul{
+  padding: 4px 0;
+  max-height: 192px;
+  overflow: auto;
+}
+.my-dropdown-menu ul li{
+  text-align: center;
+  padding: 7px 16px;
+  color: #495060;
+  cursor: pointer;
+}
+.my-dropdown-menu ul li:hover{
+  background: #f3f3f3;
+}
+

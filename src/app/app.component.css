@@ -16,6 +16,9 @@
   cursor: pointer;
   font-size: 12px;
 }
+.left-menu > ul li a{
+  color: #807f83;
+}
 .left-menu .logo{
   border-bottom: 1px solid #ececec;
 }

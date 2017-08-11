@@ -1,0 +1,13 @@
+<div class="my-dropdown">
+  <div class="my-dropdown-rel" (click)="toggleDropdownMenu()">
+    <a>{{Label}}</a>
+     <i class="ion-android-arrow-dropdown"></i> 
+  </div>
+  <div class="my-dropdown-menu" [@heroState]="hero.state">
+    <ul>
+      <li *ngFor="let item of DropdownMenu">
+        {{item.name}}
+      </li>
+    </ul>
+  </div>
+</div>

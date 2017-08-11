@@ -19,15 +19,7 @@ export class MarkdownEditorDirective {
       simpleMDE.codemirror.on('change', () => {
         this.MarkdownEditorValue.emit(simpleMDE.value())
       })
-      // let myLink = document.createElement("link");
-      // myLink.href = '../../../assets/simplemde.min.css';
-      // el.nativeElement.appendChild(myLink)
     })
-
-    // setTimeout(() => {
-    //   let editorStatusbar = el.nativeElement.querySelector('.editor-statusbar')
-    //   console.log(el.nativeElement)
-    // }, 2000)
   }
   
   // 指令往外部输出编辑器的值

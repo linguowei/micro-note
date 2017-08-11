@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { AddLinkNoteComponent } from './add-link-note/add-link-note.component';
 import { SearchComponent } from './search/search.component';
 import { IndexComponent } from './index/index.component';
 import { MarkdownEditorDirective } from './add-note/markdown-editor/markdown-editor.directive';
+import { DropdownComponent } from './component/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { MarkdownEditorDirective } from './add-note/markdown-editor/markdown-edi
     AddLinkNoteComponent,
     SearchComponent,
     IndexComponent,
-    MarkdownEditorDirective
+    MarkdownEditorDirective, // MarkdownEditor指令
+    DropdownComponent, // 自定义Dropdown组件
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, // 路由配置模块
+    BrowserAnimationsModule // 动画模块
   ],
   providers: [],
   bootstrap: [AppComponent] // 根组件

@@ -1,5 +1,11 @@
 <div class="add-note-wrap">
-   <div myMarkdownEditor (MarkdownEditorValue)="markdownValueChange($event)">
+  <div class="add-note-title">
+    <input type="text" placeholder="请输入笔记标题">
+  </div>
+  <div style="width:150px;">
+    <app-dropdown [Label]="label" [DropdownMenu]="dropdownMenu"></app-dropdown>
+  </div>
+  <div myMarkdownEditor (MarkdownEditorValue)="markdownValueChange($event)">
     <textarea style="display:none"></textarea>
   </div> 
 </div>
