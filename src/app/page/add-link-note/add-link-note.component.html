@@ -1,3 +1,8 @@
-<p>
-  add-link-note works!
-</p>
+<div class="add-link-note">
+  <div class="input-wrap">
+    <input class="search-input" #myInput placeholder="请输入URL并回车来生成笔记" autofocus="autofocus" (keydown.enter)="onEnter(myInput.value)"/>
+  </div>
+  <div class="note-name">
+    注：暂不支持JS动态生成的网页
+  </div>
+</div>

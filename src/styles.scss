@@ -16,3 +16,10 @@ a{
 a:hover, a:visited, a:link, a:active {
   color: #495060
 }
+.my-loading-bar{
+  height: 2px;
+  background-color: #2d8cf0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

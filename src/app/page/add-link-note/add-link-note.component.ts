@@ -1,3 +1,4 @@
+import { LoadingBarService } from './../../services/loading-bar/loading-bar.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLinkNoteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loadingBar : LoadingBarService) { }
 
   ngOnInit() {
+    this.loadingBar.$Loading.start()
+    setTimeout(() => {
+      this.loadingBar.$Loading.finish()
+    }, 5000)
+  }
+
+  private onEnter(value){
+    this.loadingBar.$Loading.start()
   }
 
 }

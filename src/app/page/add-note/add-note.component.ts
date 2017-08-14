@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { dropdownItem } from '../../component/dropdown/dropdown.component'
+import { dropdownItem } from '../../component/dropdown/dropdown.component';
 
 @Component({
   selector: 'app-add-note',

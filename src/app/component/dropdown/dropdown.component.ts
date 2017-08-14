@@ -28,7 +28,6 @@ export class DropdownComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.Label)
   }
 
   private toggleDropdownMenu(): void{
