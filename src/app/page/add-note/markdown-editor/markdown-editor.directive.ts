@@ -7,7 +7,6 @@ import SimpleMDE from 'simplemde'
 export class MarkdownEditorDirective {
 
   constructor(private el: ElementRef) {
-    
     setTimeout(() => {
       let simpleMDE = new SimpleMDE({
         element: el.nativeElement.querySelector('textarea'),
@@ -19,6 +18,9 @@ export class MarkdownEditorDirective {
       simpleMDE.codemirror.on('change', () => {
         this.MarkdownEditorValue.emit(simpleMDE.value())
       })
+      el.nativeElement.querySelector('.CodeMirror').style.height = window.innerHeight - 170 + 'px';
+      el.nativeElement.querySelector('.CodeMirror').style.maxHeight = window.innerHeight - 170 + 'px';
+      el.nativeElement.querySelector('.CodeMirror').style.overflow = 'auto'
     })
   }
   

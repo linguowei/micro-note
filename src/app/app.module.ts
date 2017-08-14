@@ -4,11 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddNoteComponent } from './add-note/add-note.component';
-import { AddLinkNoteComponent } from './add-link-note/add-link-note.component';
-import { SearchComponent } from './search/search.component';
-import { IndexComponent } from './index/index.component';
-import { MarkdownEditorDirective } from './add-note/markdown-editor/markdown-editor.directive';
+import { AddNoteComponent } from './page/add-note/add-note.component';
+import { AddLinkNoteComponent } from './page/add-link-note/add-link-note.component';
+import { SearchComponent } from './page/search/search.component';
+import { IndexComponent } from './page/index/index.component';
+import { MarkdownEditorDirective } from './page/add-note/markdown-editor/markdown-editor.directive';
 import { DropdownComponent } from './component/dropdown/dropdown.component';
 import { ButtonComponent } from './component/button/button.component';
 

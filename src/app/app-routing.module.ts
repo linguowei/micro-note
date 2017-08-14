@@ -1,8 +1,8 @@
-import { SearchComponent } from './search/search.component';
-import { AddLinkNoteComponent } from './add-link-note/add-link-note.component';
-import { IndexComponent } from './index/index.component';
+import { SearchComponent } from './page/search/search.component';
+import { AddLinkNoteComponent } from './page/add-link-note/add-link-note.component';
+import { IndexComponent } from './page/index/index.component';
 import { AppComponent } from './app.component';
-import { AddNoteComponent } from './add-note/add-note.component';
+import { AddNoteComponent } from './page/add-note/add-note.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

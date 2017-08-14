@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { dropdownItem } from '../component/dropdown/dropdown.component'
+import { dropdownItem } from '../../component/dropdown/dropdown.component'
 
 @Component({
   selector: 'app-add-note',
   templateUrl: './add-note.component.html',
-  styleUrls: ['./add-note.component.css'],
+  styleUrls: ['./add-note.component.scss'],
+  // 组件样式作用域规则，有三个值（Native）、（Emulated）默认、（None）
   encapsulation: ViewEncapsulation.None
 })
 export class AddNoteComponent implements OnInit {

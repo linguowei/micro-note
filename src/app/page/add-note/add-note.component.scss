@@ -25,15 +25,15 @@
 }
 .add-note-toolbar{
   width: 100%;
-  height: 20px;
   display: flex;
+  align-items: center;
 }
 .add-note-toolbar-label{
-  width: 50%;
-  display: flex;
+  width: 75%;
 }
 .add-note-toolbar-dropdown{
   width: 150px;
+  float: left;
 }
 .add-note-toolbar-labellist{
   width: 70%;
@@ -69,5 +69,10 @@
   margin-left: 4px;
 }
 .add-note-toolbar-btn{
-  width: 50%;
+  width: 25%;
+  align-self: flex-end;
+}
+.add-note-toolbar-btn > app-button{
+  float: right;
+  margin-left: 5px;
 }
