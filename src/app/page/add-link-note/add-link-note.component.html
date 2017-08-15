@@ -1,8 +1,34 @@
-<div class="add-link-note">
+<div class="add-link-note" *ngIf="!isShowMarkdownEditor" >
   <div class="input-wrap">
     <input class="search-input" #myInput placeholder="请输入URL并回车来生成笔记" autofocus="autofocus" (keydown.enter)="onEnter(myInput.value)"/>
   </div>
   <div class="note-name">
     注：暂不支持JS动态生成的网页
   </div>
+</div>
+
+<div class="add-note-wrap" *ngIf="isShowMarkdownEditor" >
+  <div class="add-note-title">
+    <input type="text" placeholder="请输入笔记标题" [(ngModel)]="noteTitle">
+  </div>
+  <div class="add-note-toolbar">
+    <div class="add-note-toolbar-label">
+      <div class="add-note-toolbar-dropdown">
+        <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
+      </div>
+      <ul class="add-note-toolbar-labellist">
+        <li *ngFor="let item of labelList; let i=index">
+          <span>{{item.name}}</span>
+          <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="add-note-toolbar-btn">
+      <app-button [Icon]="'ion-checkmark-circled'">确认</app-button>
+      <app-button [Icon]="'ion-reply'">返回</app-button>
+    </div>
+  </div>
+  <div myMarkdownEditor [inputMarkdownEditorValue]="markdownEditorValue" (MarkdownEditorValue)="markdownValueChange($event)">
+    <textarea style="display:none"></textarea>
+  </div> 
 </div>

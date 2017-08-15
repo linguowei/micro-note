@@ -1,3 +1,4 @@
+import { DropdownMenuListService } from './../../services/dropdown-menu-list/dropdown-menu-list.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { dropdownItem } from '../../component/dropdown/dropdown.component';
 
@@ -5,30 +6,15 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
   selector: 'app-add-note',
   templateUrl: './add-note.component.html',
   styleUrls: ['./add-note.component.scss'],
-  // 组件样式作用域规则，有三个值（Native）、（Emulated）默认、（None）
   encapsulation: ViewEncapsulation.None
 })
 export class AddNoteComponent implements OnInit {
-  label = '标签'
-  dropdownMenu = [
-    {id: 0, name: 'node'},
-    {id: 1, name: 'javascript'},
-    {id: 2, name: 'angular'},
-    {id: 3, name: 'react'},
-    {id: 3, name: 'vue'},
-    {id: 3, name: 'css'},
-    {id: 3, name: 'es6'},
-    {id: 3, name: 'V8'},
-    {id: 3, name: 'webpack'},
-    {id: 3, name: 'typescript'},
-    {id: 3, name: '04'},
-    {id: 3, name: '04'},
-    {id: 3, name: '04'},
-    {id: 3, name: '04'},
-  ]
-  labelList = []
+  private dropdownMenu = this.dropdownMenuListService.dropdownMenuList
+  private labelList = []
 
-  constructor() { }
+  constructor(
+    private dropdownMenuListService: DropdownMenuListService
+  ) { }
 
   ngOnInit() {
   }

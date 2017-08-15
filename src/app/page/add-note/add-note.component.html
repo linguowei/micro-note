@@ -5,7 +5,7 @@
   <div class="add-note-toolbar">
     <div class="add-note-toolbar-label">
       <div class="add-note-toolbar-dropdown">
-        <app-dropdown [Label]="label" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
+        <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
       </div>
       <ul class="add-note-toolbar-labellist">
         <li *ngFor="let item of labelList; let i=index">

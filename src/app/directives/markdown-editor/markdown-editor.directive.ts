@@ -5,6 +5,10 @@ import SimpleMDE from 'simplemde'
   selector: '[myMarkdownEditor]'
 })
 export class MarkdownEditorDirective {
+  @Input() inputMarkdownEditorValue: String = ''
+  // 指令往外部输出编辑器的值
+  @Output() MarkdownEditorValue = new EventEmitter<any>()
+  
 
   constructor(private el: ElementRef) {
     setTimeout(() => {
@@ -18,12 +22,11 @@ export class MarkdownEditorDirective {
       simpleMDE.codemirror.on('change', () => {
         this.MarkdownEditorValue.emit(simpleMDE.value())
       })
+      simpleMDE.value(this.inputMarkdownEditorValue)
+      simpleMDE.togglePreview()
       el.nativeElement.querySelector('.CodeMirror').style.height = window.innerHeight - 170 + 'px';
       el.nativeElement.querySelector('.CodeMirror').style.maxHeight = window.innerHeight - 170 + 'px';
       el.nativeElement.querySelector('.CodeMirror').style.overflow = 'auto'
     })
   }
-  
-  // 指令往外部输出编辑器的值
-  @Output() MarkdownEditorValue = new EventEmitter<any>();
 }
