@@ -1,7 +1,7 @@
-import { LoadingBarService } from './services/loading-bar/loading-bar.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { IndexComponent } from './page/index/index.component';
 import { MarkdownEditorDirective } from './directives/markdown-editor/markdown-editor.directive';
 import { DropdownComponent } from './component/dropdown/dropdown.component';
 import { ButtonComponent } from './component/button/button.component';
+import { LoadingBarService } from './services/loading-bar/loading-bar.service';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import { ButtonComponent } from './component/button/button.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule, // http模块
     AppRoutingModule, // 路由配置模块
-    BrowserAnimationsModule // 动画模块
+    BrowserAnimationsModule, // 动画模块
   ],
   providers: [LoadingBarService], // LoadingBar 服务
   bootstrap: [AppComponent] // 根组件

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { slideInOutAnimation } from './animations/slideInOutAnimation'
 
 @Component({
   selector: 'app-root',

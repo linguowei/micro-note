@@ -1,9 +1,7 @@
-import { style } from '@angular/animations';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class LoadingBarService {
-
   constructor() { }
   
   public $Loading = {
@@ -15,17 +13,18 @@ export class LoadingBarService {
       const bodyEl = document.querySelector('body')
       bodyEl.appendChild(LoadingBarDiv)
       let LoadingBarDivWidth = 0
-      const timer = setInterval(() => {
+      this.timer = setInterval(() => {
         LoadingBarDivWidth++
         LoadingBarDiv.style.width = LoadingBarDivWidth + 'vw'
         if(LoadingBarDivWidth >= 100){
-          clearInterval(timer)
+          clearInterval(this.timer)
         }
       }, 25)
     },
     finish: function(){
       let myLoadingBar = document.querySelector('.my-loading-bar')
       if(myLoadingBar !== null && myLoadingBar instanceof HTMLElement){
+        clearInterval(this.timer)
         myLoadingBar.style.width = 0 + 'vw'
       }
     }
