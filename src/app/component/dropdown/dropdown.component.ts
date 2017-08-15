@@ -30,10 +30,10 @@ export class DropdownComponent implements OnInit {
   ngOnInit() {
   }
 
-  private toggleDropdownMenu(): void{
+  toggleDropdownMenu(): void{
     this.dropdownMenu.state == 'active' ? this.dropdownMenu.state = 'inactive' : this.dropdownMenu.state = 'active'
   }
-  private selectItem(data): void{
+  selectItem(data): void{
     this.dropdownMenu.state = 'inactive'
     this.SelectItem.emit(data)
   }

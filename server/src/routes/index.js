@@ -1,11 +1,13 @@
 const Router = require('koa-router')
 const read = require('node-readability')
 const fs = require('fs')
+const path = require('path')
 
+const resolve = file => path.resolve(__dirname, file)
 const router = new Router()
 
 router.get('*', (ctx) => {
-	const html = fs.readFileSync('../../../dist/index.html', 'utf-8')
+	const html = fs.readFileSync(resolve('../../../dist/' + 'index.html'), 'utf-8')
 	ctx.body = html
 })
 

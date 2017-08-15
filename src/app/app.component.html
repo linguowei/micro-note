@@ -16,6 +16,16 @@
       </a>
     </li>
     <li>
+      <a [routerLink]="['/tag']">
+        <div class="ion-bookmark icon"></div>标签
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/classification']">
+        <div class="ion-document-text icon"></div>归档
+      </a>
+    </li>
+    <li>
       <a [routerLink]="['/search']">
         <div class="ion-android-search icon"></div>搜索
       </a>
@@ -23,5 +33,5 @@
   </ul>
 </div>
 <div class="content-wrap">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

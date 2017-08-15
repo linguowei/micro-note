@@ -1,4 +1,4 @@
-import { DropdownMenuListService } from './../../services/dropdown-menu-list/dropdown-menu-list.service';
+import { TagListService } from './../../services/tag-list/tag-list.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { dropdownItem } from '../../component/dropdown/dropdown.component';
 
@@ -9,25 +9,25 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
   encapsulation: ViewEncapsulation.None
 })
 export class AddNoteComponent implements OnInit {
-  private dropdownMenu = this.dropdownMenuListService.dropdownMenuList
-  private labelList = []
+  dropdownMenu = this.tagListService.tagList
+  labelList = []
 
   constructor(
-    private dropdownMenuListService: DropdownMenuListService
+    private tagListService: TagListService
   ) { }
 
   ngOnInit() {
   }
   
-  private selectItem(data){
+  selectItem(data){
     this.labelList.push(data)
   }
   
-  private delectLabelItem(index){
+  delectLabelItem(index){
     this.labelList.splice(index, 1)
   }
 
-  private markdownValueChange(data){
+  markdownValueChange(data){
     console.log(data)
   }
 

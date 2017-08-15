@@ -1,3 +1,5 @@
+import { ClassificationComponent } from './page/classification/classification.component';
+import { TagComponent } from './page/tag/tag.component';
 import { SearchComponent } from './page/search/search.component';
 import { AddLinkNoteComponent } from './page/add-link-note/add-link-note.component';
 import { IndexComponent } from './page/index/index.component';
@@ -19,6 +21,16 @@ const routes: Routes = [
   {
     path: 'addLinkNote',
     component: AddLinkNoteComponent,
+    children: []
+  },
+  {
+    path: 'tag',
+    component: TagComponent,
+    children: []
+  },
+  {
+    path: 'classification',
+    component: ClassificationComponent,
     children: []
   },
   {

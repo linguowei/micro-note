@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable()
-export class DropdownMenuListService {
+export class TagListService {
 
   constructor() { }
 
-  public dropdownMenuList = [
+  public tagList = [
     {id: 0, name: '01'},
     {id: 1, name: '02'},
     {id: 2, name: '03'},
@@ -18,4 +18,14 @@ export class DropdownMenuListService {
     {id: 7, name: '08'},
     {id: 8, name: '09'}
   ]
+  
+  public deleteTagItem = (id) => {
+    this.tagList.splice(id, 1)
+  }
+  public addTagItem = (name) => {
+    this.tagList.push({
+      id: Math.random() * 100,
+      name: name
+    })
+  }
 }

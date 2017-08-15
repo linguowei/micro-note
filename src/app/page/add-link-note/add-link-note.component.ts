@@ -1,4 +1,4 @@
-import { DropdownMenuListService } from './../../services/dropdown-menu-list/dropdown-menu-list.service';
+import { TagListService } from './../../services/tag-list/tag-list.service';
 import { LoadingBarService } from './../../services/loading-bar/loading-bar.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Http } from '@angular/http';
@@ -11,13 +11,13 @@ import 'rxjs/add/operator/map';
   encapsulation: ViewEncapsulation.None
 })
 export class AddLinkNoteComponent implements OnInit {
-  private isShowMarkdownEditor = false
-  private dropdownMenu = this.dropdownMenuListService.dropdownMenuList
-  private labelList = []
-  private markdownEditorValue = String
-  private noteTitle: string = ''
+  isShowMarkdownEditor = false
+  dropdownMenu = this.tagListService.tagList
+  labelList = []
+  markdownEditorValue = String
+  noteTitle: string = ''
   constructor(
-    private dropdownMenuListService: DropdownMenuListService,
+    private tagListService: TagListService,
     private loadingBar : LoadingBarService,
     private http: Http
   ) { }
@@ -25,7 +25,7 @@ export class AddLinkNoteComponent implements OnInit {
   ngOnInit() {
   }
 
-  private onEnter(value){
+  onEnter(value){
     this.loadingBar.$Loading.start()
     this.http.post('/api/generateNote', {
       link: value
@@ -39,16 +39,20 @@ export class AddLinkNoteComponent implements OnInit {
     })
   }
 
-  private selectItem(data){
+  selectItem(data){
     this.labelList.push(data)
   }
   
-  private delectLabelItem(index){
+  delectLabelItem(index){
     this.labelList.splice(index, 1)
   }
 
-  private markdownValueChange(data){
+  markdownValueChange(data){
     // console.log(data)
+  }
+
+  cancel(){
+    this.isShowMarkdownEditor = false
   }
 
 }
