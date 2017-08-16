@@ -11,14 +11,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.add-note-title input{
-  width: 200px;
-  height: 30px;
-  border: none;
-  outline: none;
-  font-size: 20px;
-  color:#999;
+  input{
+    width: 200px;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color:#999;
+  }
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
   color:#999;
@@ -40,39 +40,39 @@
   max-width: 70%;
   overflow: hidden;
   display: flex;
-}
-.add-note-toolbar-labellist::-webkit-scrollbar{
-  width: 0px;
-}
-.add-note-toolbar-labellist > li{
-  margin: 0 3px;
-  white-space: nowrap;
-  text-align: center;
-  border: 1px solid #ececec;
-  border-radius: 3px;
-  padding: 0 6px;
-}
-.add-note-toolbar-labellist > li > a{
-  font-size: 13px;
-  color: #808b96;
-}
-.add-note-toolbar-labellist > li > i{
-  font-size: 12px;
-  cursor: pointer;
-  border-left: 1px solid #ececec;
-  color: #ccc;
-}
-.add-note-toolbar-labellist > li > i:hover{
-  color: #808b96;
-}
-.add-note-toolbar-labellist > li > i::before{
-  margin-left: 4px;
+  li{
+    margin: 0 3px;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    padding: 0 6px;
+    a{
+      font-size: 13px;
+      color: #808b96;
+    };
+    i{
+      font-size: 12px;
+      cursor: pointer;
+      border-left: 1px solid #ececec;
+      color: #ccc;
+      &:hover{
+        color: #808b96;
+      };
+      &::before{
+        margin-left: 4px;
+      }
+    };
+  };
+  &::-webkit-scrollbar{
+    width: 0px;
+  }
 }
 .add-note-toolbar-btn{
   width: 25%;
   align-self: flex-end;
-}
-.add-note-toolbar-btn > app-button{
-  float: right;
-  margin-left: 5px;
+  app-button{
+    float: right;
+    margin-left: 5px;
+  }
 }

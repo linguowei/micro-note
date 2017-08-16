@@ -6,21 +6,27 @@
   height: 100vh;
   border-right: 1px solid #ececec;
   float: left;
-}
-.left-menu > ul{
-  padding: 7px;
-}
-.left-menu > ul li{
-  text-align: center;
-  padding: 15px 0;
-  cursor: pointer;
-  font-size: 12px;
-}
-.left-menu > ul li a{
-  color: #807f83;
-}
-.left-menu .logo{
-  border-bottom: 1px solid #ececec;
+  ul{
+    padding: 7px;
+    li{
+      text-align: center;
+      padding: 15px 0;
+      cursor: pointer;
+      font-size: 12px;
+      a{
+        color: #919191;
+        &:hover{
+          color: #404040;
+        }
+      };
+      .router-active{
+        color: #5a5a5a;
+      }
+    }
+  };
+  .logo{
+    border-bottom: 1px solid #ececec;
+  }
 }
 .content-wrap{
   overflow: hidden;

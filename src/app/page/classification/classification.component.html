@@ -1,3 +1,11 @@
-<p>
-  classification works!
-</p>
+<div class="classification-wrap">
+  <ul class="tabs">
+    <li [class.tab-active]="tabIsActive" (click)="all()">全部</li>
+    <li *ngFor="let item of tagList; let i=index" (click)="tabClick(item)" [class.tab-active]="item.tabIsActive">
+      {{item.name}}
+    </li>
+  </ul>
+  <div class="tab-content">
+    {{content}}
+  </div>
+</div>

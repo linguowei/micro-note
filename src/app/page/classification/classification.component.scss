@@ -1,0 +1,33 @@
+.classification-wrap{
+  margin: 0 3rem;
+  padding: 1rem;
+
+  .tabs{
+    max-width: 100%;
+    overflow: auto;
+    border-bottom: 1px solid #ececec;
+    display: flex;
+    &::-webkit-scrollbar{
+      width: 0px;
+    };
+    li{
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 10px 15px;
+      text-align: center;
+      cursor: pointer;
+      color: #919191;
+      &:hover{
+        color: #404040;
+      }
+    };
+    .tab-active{
+      border-bottom: 2px solid #ccc;
+    }
+  };
+
+  .tab-content{
+    padding: 15px 0;
+    transition: opacity 1s;
+  }
+}

@@ -1,32 +1,32 @@
 <div class="left-menu">
   <ul>
     <li class="logo">
-      <a [routerLink]="['/index']">
+      <a [routerLink]="['/index']" [routerLinkActive]="['.router-active']">
         <img src="../assets/index.svg" width="35" height="35">
       </a>
     </li>
     <li>
-      <a [routerLink]="['/addNote']">
+      <a [routerLink]="['/addNote']" routerLinkActive="router-active">
         <div class="ion-edit icon"></div>新增
       </a>
     </li>
     <li>
-      <a [routerLink]="['/addLinkNote']">
+      <a [routerLink]="['/addLinkNote']" routerLinkActive="router-active">
         <div class="ion-usb icon"></div>链接
       </a>
     </li>
     <li>
-      <a [routerLink]="['/tag']">
+      <a [routerLink]="['/tag']" routerLinkActive="router-active">
         <div class="ion-bookmark icon"></div>标签
       </a>
     </li>
     <li>
-      <a [routerLink]="['/classification']">
+      <a [routerLink]="['/classification']" routerLinkActive="router-active">
         <div class="ion-document-text icon"></div>归档
       </a>
     </li>
     <li>
-      <a [routerLink]="['/search']">
+      <a [routerLink]="['/search']" routerLinkActive="router-active">
         <div class="ion-android-search icon"></div>搜索
       </a>
     </li>

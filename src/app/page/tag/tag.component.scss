@@ -25,6 +25,8 @@
 .tag-list-wrap{
   display: flex;
   flex-wrap: wrap;
+  overflow: auto;
+  max-height: 61vh;
 }
 .tag-item{
   height: 25px;
@@ -34,19 +36,22 @@
   margin: 3px 3px;
   display: flex;
   flex-wrap: wrap;
-}
-.tag-item div{
-  line-height: 25px;
-  padding: 0 14px;
-}
-.tag-item i{
-  line-height: 25px;
-  padding: 0 6px;
   cursor: pointer;
-  border-left: 1px solid #ccc;
-  font-size: 12px;
-  color: #ccc;
-}
-.tag-item i:hover{
-  color: #808b96;
+  div{
+    line-height: 25px;
+    padding: 0 14px;
+  };
+  i{
+    line-height: 25px;
+    padding: 0 6px;
+    border-left: 1px solid #ccc;
+    font-size: 12px;
+    color: #ccc;
+  };
+  i:hover{
+    color: #808b96;
+  }
+  &:hover{
+    box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+  }
 }

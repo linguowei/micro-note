@@ -28,7 +28,7 @@ import { Component, OnInit } from '@angular/core';
       display:table-cell;
       text-align:center;
       vertical-align:middle;
-      background: linear-gradient(to left bottom, hsl(0, 0%, 74%) 0%,hsl(169, 68%, 87%) 100%);
+      background: #ebf8f2;
     }
     .index .logo{
       height: 60vh;
