@@ -2,28 +2,28 @@
 .add-link-note{
   height: 100vh;
   padding: 1vh 8vh 30vh 8vh;
-}
-.input-wrap{
-  height:52px;
-  line-height:52px;
-  margin-top: 19vh;
-}
-.search-input{
-  border-bottom: 1px solid #ccc;
-  background-color: transparent;
-  margin-bottom: 3vh;
-  border: none;
-  color: #ccc;
-  height: 52px;
-  width: 100%;
-  overflow-x: scroll;
-  font-size: 40px;
-  outline: none;
-}
-.note-name{
-  border-bottom: 1px solid #ececec;
-  padding-bottom: 3vh;
-  font-size: 13px;
-  margin-top: 3rem;
+  .input-wrap{
+    height:52px;
+    line-height:52px;
+    margin-top: 19vh;
+    .search-input{
+      border-bottom: 1px solid #ccc;
+      background-color: transparent;
+      margin-bottom: 3vh;
+      border: none;
+      color: #ccc;
+      height: 52px;
+      width: 100%;
+      overflow-x: scroll;
+      font-size: 40px;
+      outline: none;
+    }
+  };
+  .note-name{
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 3vh;
+    font-size: 13px;
+    margin-top: 3rem;
+  }
 }
 
