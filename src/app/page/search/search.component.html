@@ -1,3 +1,5 @@
-<p>
-  search works!
-</p>
+<div class="search-wrap">
+  <div class="input-wrap">
+    <input class="search-input" #myInput placeholder="请输入笔记标题关键字" autofocus="autofocus" (keydown.enter)="onEnter(myInput.value)"/>
+  </div>
+</div>
