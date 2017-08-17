@@ -26,7 +26,16 @@ export class NoteService {
   _deleteNote(){
 
   }
+  
+  // 获取
+  _getNoteList(){
 
+  }
+
+  // 获取单个
+  _getNoteItem(){
+    
+  }
 }
 
 interface addNote {
