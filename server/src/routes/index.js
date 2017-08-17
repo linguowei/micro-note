@@ -13,7 +13,17 @@ router.get('*', (ctx) => {
 
 router.post('/api/generateNote', async (ctx, next) => {
 	await new Promise((resolve, reject) => {
-		read(ctx.request.body.link, (err, article, meta) => {
+		read(ctx.request.body.link, {
+			cleanRulers: [
+				(obj, tag) => {
+					console.log(tag)
+					if(tag === 'object') {
+						if(obj.getAttribute('class') === 'BrightcoveExperience') {
+							return true;
+						}
+					}
+				}
+			]}, (err, article, meta) => {
 			if (err) {
 				reject(err)
 			} else {
@@ -26,7 +36,7 @@ router.post('/api/generateNote', async (ctx, next) => {
 			content: success.content
 		}
 	}).then((err) => {
-		console.log('bbb', err)
+		// console.log('bbb', err)
 	})
 })
 

@@ -16,14 +16,14 @@ export class MarkdownEditorDirective {
         element: el.nativeElement.querySelector('textarea'),
         autofocus: false,
         autosave: true,
-        toolbar: ['bold', 'italic', 'strikethrough', 'heading', 'code', 'quote', 'unordered-list', 'ordered-list', 'clean-block', 'link', 'image', 'table', 'horizontal-rule', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
+        toolbar: ['bold', 'italic', 'strikethrough', 'heading', 'code', 'quote', 'unordered-list', 'ordered-list', 'clean-block', 'link', 'image', 'table', 'horizontal-rule', 'preview', 'side-by-side', 'fullscreen'],
         styleSelectedText: false
       })
       simpleMDE.codemirror.on('change', () => {
         this.MarkdownEditorValue.emit(simpleMDE.value())
       })
       simpleMDE.value(this.inputMarkdownEditorValue)
-      simpleMDE.togglePreview()
+      // simpleMDE.togglePreview()
       el.nativeElement.querySelector('.CodeMirror').style.height = window.innerHeight - 170 + 'px';
       el.nativeElement.querySelector('.CodeMirror').style.maxHeight = window.innerHeight - 170 + 'px';
       el.nativeElement.querySelector('.CodeMirror').style.overflow = 'auto'

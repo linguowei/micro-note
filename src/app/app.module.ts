@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddNoteComponent } from './page/add-note/add-note.component';
-import { AddLinkNoteComponent } from './page/add-link-note/add-link-note.component';
+import { AddLinkNoteComponent, CalculationContentHeightDirective } from './page/add-link-note/add-link-note.component';
 import { SearchComponent } from './page/search/search.component';
 import { IndexComponent } from './page/index/index.component';
 import { MarkdownEditorDirective } from './directives/markdown-editor/markdown-editor.directive';
@@ -26,6 +26,7 @@ import { ClassificationComponent } from './page/classification/classification.co
     SearchComponent,
     IndexComponent,
     MarkdownEditorDirective, // MarkdownEditor指令
+    CalculationContentHeightDirective,
     DropdownComponent, ButtonComponent, TagComponent, ClassificationComponent // 自定义Dropdown、Button组件
   ],
   imports: [

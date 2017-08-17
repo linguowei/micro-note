@@ -27,3 +27,117 @@
   }
 }
 
+.add-note-toolbar{
+  padding: 10px 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.preview{
+  font-size: 14px !important;
+  padding: 10px 30px;
+  background-color: #fbfbfb;
+  pre{
+    background-color: #eee;
+    padding: 5px;
+    max-width: 100%;
+    overflow: auto;
+  }
+  img{
+    max-width: 100%;
+    width: 100%;
+  }
+  th, td{
+    border: 1px solid #E6E6E6;
+    padding: 5px 8px;
+  }
+  table{
+    border-collapse: collapse;
+  }
+  blockquote{
+    margin: 1em 0;
+    border-left: 4px solid #ddd;
+    padding: 0 1.3rem;
+    color: #666;
+  }
+  h1{
+    margin: 1.3rem 0;
+    line-height: 1.2;
+    font-size: 2em;
+  }
+  h2{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+  h3{
+    margin: 20px 0;
+  }
+  p{
+    line-height: 2;
+    display: block;
+    margin-bottom: 20px;
+    a{
+      color: #3dbd7d;
+      text-decoration: none;
+    }
+  }
+  ul{
+    padding-left: 2.7rem;
+    display: block;
+    list-style-type: disc;
+    li{
+      margin-bottom: .6rem;
+      list-style: inherit;
+    }
+  }
+  code{
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+    font-size: 1rem;
+    padding: 2px 5px;
+    word-break: break-word;
+    color: #49a9ee;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+    overflow-x: scroll;
+    font-size: 12px;
+    margin: 0 4px;
+  }
+  pre{
+    white-space: pre;
+    margin: 1em 0px;
+    padding: 5px;
+    width: 100%;
+    max-width: 100%;
+    overflow: scroll;
+    border-radius: 3px;
+    code{
+      color: #333 !important;
+      background-color: #eeeeee;
+      .hljs-function{
+        color: #333;
+      }
+      .hljs-keyword{
+        color: #333;
+        font-weight: 700;
+      }
+      .hljs-title{
+        color: #900;
+        font-weight: 700;
+      }
+      .hljs-params{
+        color: #333;
+      }
+      .hljs-comment{
+        color: #998;
+      }
+      .hljs-string{
+        color: #d14;
+      }
+      .hljs-number{
+        color: teal;
+      }
+      .hljs-literal{
+        color: teal;
+      }
+    }
+  }
+}

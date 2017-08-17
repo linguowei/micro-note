@@ -1,6 +1,6 @@
  @import '../../directives/markdown-editor/simplemde.min.css'; 
 .add-note-wrap {
-  margin: 0 3rem;
+  margin: 0 10%;
   padding: 1rem;
 }
 .editor-toolbar{
@@ -12,12 +12,13 @@
   justify-content: center;
   align-items: center;
   input{
-    width: 200px;
+    text-align: center;
+    width: 100%;
     height: 30px;
     border: none;
     outline: none;
     font-size: 20px;
-    color:#999;
+    color:#4e4e4e;
   }
 }
 ::-webkit-input-placeholder { /* WebKit browsers */

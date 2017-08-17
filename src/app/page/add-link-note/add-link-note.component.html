@@ -28,7 +28,7 @@
       <app-button [Icon]="'ion-reply'" (click)="cancel()">取消</app-button>
     </div>
   </div>
-  <div myMarkdownEditor [inputMarkdownEditorValue]="markdownEditorValue" (MarkdownEditorValue)="markdownValueChange($event)">
-    <textarea style="display:none"></textarea>
+  <div [innerHTML]="noteContent" class="preview" previewHeight>
+    
   </div> 
 </div>
