@@ -1,3 +1,4 @@
+import { NoteService } from '../../services/note/note.service';
 import { Http } from '@angular/http';
 import { TagListService } from './../../services/tag-list/tag-list.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
@@ -17,7 +18,8 @@ export class AddNoteComponent implements OnInit {
 
   constructor(
     private tagListService: TagListService,
-    private http: Http
+    private http: Http,
+    private noteService: NoteService
   ) { }
 
   ngOnInit() {
@@ -37,16 +39,12 @@ export class AddNoteComponent implements OnInit {
   }
   
   // 保存笔记
-  _save(){
-    this.http.post('/api/addNote', {
+  save(){
+    this.noteService._addNote({
       title: this._title,
       content: this._content,
       tag: this._labelList,
       date: new Date()
-    })
-    .map(res => res.json())
-    .subscribe((data) => {
-      console.log(data)
     })
   }
 }

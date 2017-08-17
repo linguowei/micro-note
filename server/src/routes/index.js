@@ -48,6 +48,17 @@ router.post('/api/addNote', async (ctx, next) => {
 	})
 })
 
+router.post('/api/addTag', async (ctx, next) => {
+	await new Models.TagList(ctx.request.body).save((err, docs) => {
+		if(err){
+			ctx.throw(500)
+			return
+		}
+		successState.data = docs
+		ctx.response.body = successState
+	})
+})
+
 // router.get('/test', (ctx) => {
 //   ctx.body = 'testwwww!';
 // })
