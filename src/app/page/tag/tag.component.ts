@@ -1,4 +1,4 @@
-import { TagListService } from './../../services/tag-list/tag-list.service';
+import { TagService } from './../../services/tag/tag.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,21 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tag.component.scss']
 })
 export class TagComponent implements OnInit {
-  tagList = this.tagListService.tagList
+  tagList = this.tagService.tagList
   tagName: String = ''
   constructor(
-    private tagListService: TagListService
+    private tagService: TagService
   ) { }
 
   ngOnInit() {
   }
   
   onEnter(value){
-    this.tagListService.addTagItem(value)
+    this.tagService.addTagItem(value)
     this.tagName = ''
   }
 
   delectTagItem(id){
-    this.tagListService.deleteTagItem(id)
+    this.tagService.deleteTagItem(id)
   }
 }

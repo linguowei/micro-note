@@ -1,5 +1,5 @@
 import { style } from '@angular/animations';
-import { TagListService } from './../../services/tag-list/tag-list.service';
+import { TagService } from './../../services/tag/tag.service';
 import { LoadingBarService } from './../../services/loading-bar/loading-bar.service';
 import { Component, OnInit, ViewEncapsulation, Directive, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
@@ -60,12 +60,12 @@ export class CalculationContentHeightDirective {
 })
 export class AddLinkNoteComponent implements OnInit {
   isShowMarkdownEditor = false
-  dropdownMenu = this.tagListService.tagList
+  dropdownMenu = this.tagService.tagList
   labelList = []
   noteTitle: String = ''
   noteContent: String = ''
   constructor(
-    private tagListService: TagListService,
+    private tagService: TagService,
     private loadingBar : LoadingBarService,
     private http: Http,
     private sanitizer: DomSanitizer

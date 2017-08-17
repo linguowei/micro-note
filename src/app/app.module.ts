@@ -1,5 +1,5 @@
 import { NoteService } from './services/note/note.service';
-import { TagListService } from './services/tag-list/tag-list.service';
+import { TagService } from './services/tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,7 +37,7 @@ import { ClassificationComponent } from './page/classification/classification.co
     AppRoutingModule, // 路由配置模块
     BrowserAnimationsModule, // 动画模块
   ],
-  providers: [LoadingBarService, TagListService, NoteService], // LoadingBar, TagListService 服务 
+  providers: [LoadingBarService, TagService, NoteService], // LoadingBar, TagListService 服务 
   bootstrap: [AppComponent] // 根组件
 })
 export class AppModule { }

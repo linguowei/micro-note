@@ -1,5 +1,5 @@
 import { NoteService } from '../../services/note/note.service';
-import { TagListService } from './../../services/tag-list/tag-list.service';
+import { TagService } from './../../services/tag/tag.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { dropdownItem } from '../../component/dropdown/dropdown.component';
 
@@ -10,13 +10,13 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
   encapsulation: ViewEncapsulation.None
 })
 export class AddNoteComponent implements OnInit {
-  dropdownMenu = this.tagListService.tagList
+  dropdownMenu = this.tagService.tagList
   _title = ''
   _content = ''
   _labelList = []
 
   constructor(
-    private tagListService: TagListService,
+    private tagService: TagService,
     private noteService: NoteService
   ) { }
 
@@ -32,7 +32,6 @@ export class AddNoteComponent implements OnInit {
   }
 
   markdownValueChange(data){
-    // console.log(data)
     this._content = data
   }
   
