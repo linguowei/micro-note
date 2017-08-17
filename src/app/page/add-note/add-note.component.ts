@@ -1,5 +1,4 @@
 import { NoteService } from '../../services/note/note.service';
-import { Http } from '@angular/http';
 import { TagListService } from './../../services/tag-list/tag-list.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { dropdownItem } from '../../component/dropdown/dropdown.component';
@@ -18,7 +17,6 @@ export class AddNoteComponent implements OnInit {
 
   constructor(
     private tagListService: TagListService,
-    private http: Http,
     private noteService: NoteService
   ) { }
 
