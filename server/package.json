@@ -10,6 +10,7 @@
   "author": "1368033036@qq.com",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-cors": "0.0.16",
