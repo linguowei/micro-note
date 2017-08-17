@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Subscription';
 import { NoteService } from '../../services/note/note.service';
 import { TagService } from './../../services/tag/tag.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
@@ -10,10 +11,11 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
   encapsulation: ViewEncapsulation.None
 })
 export class AddNoteComponent implements OnInit {
-  dropdownMenu: any
-  _title = ''
-  _content = ''
-  _labelList = []
+  dropdownMenuSub: Subscription
+  dropdownMenu = []
+  title = ''
+  content = ''
+  tagList = []
 
   constructor(
     private tagService: TagService,
@@ -21,26 +23,33 @@ export class AddNoteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dropdownMenuSub = this.tagService.tagList$.subscribe((data) => {
+      this.dropdownMenu = data
+    })
+  }
+
+  ngOnDestroy() {
+    this.dropdownMenuSub.unsubscribe()
   }
   
   selectItem(data){
-    this._labelList.push(data)
+    this.tagList.push(data)
   }
   
   delectLabelItem(index){
-    this._labelList.splice(index, 1)
+    this.tagList.splice(index, 1)
   }
 
   markdownValueChange(data){
-    this._content = data
+    this.content = data
   }
   
   // 保存笔记
   save(){
     this.noteService._addNote({
-      title: this._title,
-      content: this._content,
-      tag: this._labelList,
+      title: this.title,
+      content: this.content,
+      tag: this.tagList,
       date: new Date()
     })
   }
