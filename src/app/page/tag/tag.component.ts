@@ -1,5 +1,6 @@
 import { TagService } from './../../services/tag/tag.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'app-tag',
@@ -7,21 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tag.component.scss']
 })
 export class TagComponent implements OnInit {
-  tagList = this.tagService.tagList
+  tagListSub: Subscription
+  tagList = this.tagService._getTagList()
   tagName: String = ''
   constructor(
     private tagService: TagService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
+    this.tagListSub = this.tagService.tagList$.subscribe((data) => {
+      this.tagList = data
+    })
   }
   
-  onEnter(value){
-    this.tagService.addTagItem(value)
+  ngOnDestroy() {
+    // 取消订阅防止内存泄露
+    this.tagListSub.unsubscribe()
+  }
+  
+  addTag(value){
+    this.tagService._addTag(value)
     this.tagName = ''
   }
 
   delectTagItem(id){
-    this.tagService.deleteTagItem(id)
+    this.tagService._deleteTag(id)
   }
 }

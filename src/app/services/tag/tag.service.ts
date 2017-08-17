@@ -1,31 +1,50 @@
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
-export class TagService {
+export class TagService {  
+  tagList = []
+  tagList$ = new BehaviorSubject<Array<object>>(this.tagList)
 
-  constructor() { }
-
-  public tagList = [
-    {id: 0, name: '01'},
-    {id: 1, name: '02'},
-    {id: 2, name: '03'},
-    {id: 3, name: '04'},
-    {id: 4, name: '05'},
-    {id: 5, name: '06'},
-    {id: 6, name: '07'},
-    {id: 7, name: '08'},
-    {id: 8, name: '09'}
-  ]
-  
-  public deleteTagItem = (id) => {
-    this.tagList.splice(id, 1)
+  constructor(
+    private http: Http
+  ) {
+    this.updateTagList()
   }
-  public addTagItem = (name) => {
-    this.tagList.push({
-      id: Math.random() * 100,
+  
+  // 新增
+  _addTag(name: String){
+    this.http.post('/api/addTag', {
       name: name
     })
+    .map(res => res.json())
+    .subscribe((data) => {
+      this.updateTagList()
+    })
   }
+  
+  // 删除
+  _deleteTag(id){
+    this.http.post('/api/deleteTag', {
+      id: id
+    }).map(res => res.json())
+      .subscribe((data) => {
+        this.updateTagList()
+      })
+  }
+  
+  // 获取整个列表
+  _getTagList(){
+    return this.tagList
+  }
+
+  private updateTagList(){
+    this.http.get('/api/TagList')
+      .map(res => res.json())
+      .subscribe((data) => {
+        this.tagList$.next(data.data)
+      })
+  }
+
 }

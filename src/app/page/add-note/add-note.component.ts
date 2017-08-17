@@ -10,7 +10,7 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
   encapsulation: ViewEncapsulation.None
 })
 export class AddNoteComponent implements OnInit {
-  dropdownMenu = this.tagService.tagList
+  dropdownMenu: any
   _title = ''
   _content = ''
   _labelList = []

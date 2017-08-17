@@ -60,7 +60,7 @@ export class CalculationContentHeightDirective {
 })
 export class AddLinkNoteComponent implements OnInit {
   isShowMarkdownEditor = false
-  dropdownMenu = this.tagService.tagList
+  dropdownMenu = this.tagService._getTagList()
   labelList = []
   noteTitle: String = ''
   noteContent: String = ''
