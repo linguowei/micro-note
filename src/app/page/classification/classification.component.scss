@@ -9,6 +9,7 @@
     display: flex;
     &::-webkit-scrollbar{
       width: 0px;
+      height: 0px;
     };
     li{
       font-size: 14px;
@@ -17,17 +18,51 @@
       text-align: center;
       cursor: pointer;
       color: #919191;
+      white-space: nowrap;
       &:hover{
         color: #404040;
       }
     };
     .tab-active{
       border-bottom: 2px solid #ccc;
+      color: #404040;
     }
   };
 
   .tab-content{
-    padding: 15px 0;
     transition: opacity 1s;
+    display: flex;
+    flex-wrap: wrap;
+    .note-item{
+      width: 26%;
+      border: 1px solid #ececec;
+      border-radius: 3px;
+      margin: 10px 2%;
+      padding: 10px;
+      text-align: center;
+      .title{
+        font-size: 16px;
+        color: #32d3c3;
+        cursor: pointer;
+      }
+      .date{
+        color: #aaa;
+        font-size: 12px;
+        padding: 10px 0;
+        border-bottom: 1px dashed #ddd;
+      }
+      .content{
+        text-align: left;
+        padding: 10px 0;
+        color: #666;
+        min-height: 4rem;
+        max-height: 4rem;
+        line-height: 1.2rem;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+      }
+    }
   }
 }

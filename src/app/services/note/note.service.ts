@@ -1,12 +1,17 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class NoteService {
+  allNote = []
+  allNote$ = new BehaviorSubject<Array<object>>(this.allNote)
 
   constructor(
     private http: Http
-  ) { }
+  ) { 
+    this.updateAllNote()
+  }
   
   // 添加
   _addNote(param: addNote){
@@ -26,15 +31,18 @@ export class NoteService {
   _deleteNote(){
 
   }
-  
-  // 获取
-  _getNoteList(){
-
-  }
 
   // 获取单个
   _getNoteItem(){
     
+  }
+
+  private updateAllNote(){
+    this.http.get('/api/allNote')
+      .map(res => res.json())
+      .subscribe((data) => {
+        this.allNote$.next(data.data)
+      })
   }
 }
 

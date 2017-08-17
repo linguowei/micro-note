@@ -18,6 +18,17 @@ const successState = {
  * 笔记 C、R、U、D
  */
 
+router.get('/api/allNote', async (ctx, next) => {
+	await Models.NoteList.find({}, (err, docs) => {
+		if(err){
+			ctx.throw(500)
+			return
+		}
+		successState.data = docs
+		ctx.response.body = successState
+	})
+})
+
 router.post('/api/generateNote', async (ctx, next) => {
 	await new Promise((resolve, reject) => {
 		read(ctx.request.body.link, (err, article, meta) => {

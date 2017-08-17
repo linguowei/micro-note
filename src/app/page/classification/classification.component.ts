@@ -1,4 +1,6 @@
-import { TagListService } from '../../services/tag-list/tag-list.service';
+import { NoteService } from '../../services/note/note.service';
+import { Subscription } from 'rxjs/Subscription';
+import { TagService } from '../../services/tag/tag.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,18 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classification.component.scss']
 })
 export class ClassificationComponent implements OnInit {
-  tagList = this.tagListService.tagList
+  tagListSub: Subscription
+  tagList = []
   content: String = '全部'
   tabIsActive: Boolean = true
+  
+  allNoteSub: Subscription
+  allNote = []
 
+  currentNoteList = []
+  
   constructor(
-    private tagListService : TagListService
+    private tagService : TagService,
+    private noteService: NoteService
   ) { }
 
   ngOnInit() {
+    this.tagListSub = this.tagService.tagList$.subscribe((data) => {
+      this.tagList = data
+    })
     this._activeFalse()
+
+    this.allNoteSub = this.noteService.allNote$.subscribe((data) => {
+      this.allNote = data
+      this.currentNoteList = data
+    })
   }
   
+  ngOnDestroy() {
+    this.tagListSub.unsubscribe()
+    this.allNoteSub.unsubscribe()
+  }
+
   _activeFalse(){
     this.tagList.map((item) => {
       item['tabIsActive'] = false
