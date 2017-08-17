@@ -7,8 +7,13 @@ const noteSchema = db.Schema({
   date: Date
 })
 
+const tagSchema = db.Schema({
+  name: String
+})
+
 const Models = {
-  NoteList: db.model('NoteList', noteSchema)
+  NoteList: db.model('NoteList', noteSchema),
+  TagList: db.model('TagList', tagSchema)
 }
 
 module.exports = Models
