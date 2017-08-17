@@ -1,6 +1,6 @@
 <div class="add-note-wrap">
   <div class="add-note-title">
-    <input type="text" placeholder="请输入笔记标题">
+    <input type="text" placeholder="请输入笔记标题" [(ngModel)]="_title">
   </div>
   <div class="add-note-toolbar">
     <div class="add-note-toolbar-label">
@@ -8,14 +8,14 @@
         <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
       </div>
       <ul class="add-note-toolbar-labellist">
-        <li *ngFor="let item of labelList; let i=index">
+        <li *ngFor="let item of _labelList; let i=index">
           <span>{{item.name}}</span>
           <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
         </li>
       </ul>
     </div>
     <div class="add-note-toolbar-btn">
-      <app-button [Icon]="'ion-checkmark-circled'">确认</app-button>
+      <app-button [Icon]="'ion-checkmark-circled'" (click)="_save()">保存</app-button>
       <app-button [Icon]="'ion-reply'">返回</app-button>
     </div>
   </div>

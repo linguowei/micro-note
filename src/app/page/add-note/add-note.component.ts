@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { TagListService } from './../../services/tag-list/tag-list.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { dropdownItem } from '../../component/dropdown/dropdown.component';
@@ -10,25 +11,42 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
 })
 export class AddNoteComponent implements OnInit {
   dropdownMenu = this.tagListService.tagList
-  labelList = []
+  _title = ''
+  _content = ''
+  _labelList = []
 
   constructor(
-    private tagListService: TagListService
+    private tagListService: TagListService,
+    private http: Http
   ) { }
 
   ngOnInit() {
   }
   
   selectItem(data){
-    this.labelList.push(data)
+    this._labelList.push(data)
   }
   
   delectLabelItem(index){
-    this.labelList.splice(index, 1)
+    this._labelList.splice(index, 1)
   }
 
   markdownValueChange(data){
-    console.log(data)
+    // console.log(data)
+    this._content = data
   }
-
+  
+  // 保存笔记
+  _save(){
+    this.http.post('/api/addNote', {
+      title: this._title,
+      content: this._content,
+      tag: this._labelList,
+      date: new Date()
+    })
+    .map(res => res.json())
+    .subscribe((data) => {
+      console.log(data)
+    })
+  }
 }
