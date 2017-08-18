@@ -1,7 +1,19 @@
+import { style } from '@angular/animations';
 import { NoteService } from '../../services/note/note.service';
 import { Subscription } from 'rxjs/Subscription';
 import { TagService } from '../../services/tag/tag.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[classificationTabsContentHeight]'
+})
+export class classificationTabsContentHeight{
+  constructor(el: ElementRef){
+    el.nativeElement.style.height = window.innerHeight - 80 + 'px'
+    el.nativeElement.style.maxHeight = window.innerHeight - 80 + 'px'
+    el.nativeElement.style.overflow = 'auto'
+  }
+}
 
 @Component({
   selector: 'app-classification',
@@ -22,9 +34,7 @@ export class ClassificationComponent implements OnInit {
   constructor(
     private tagService : TagService,
     private noteService: NoteService
-  ) { }
-
-  ngOnInit() {
+  ) { 
     this.tagListSub = this.tagService.tagList$.subscribe((data) => {
       this.tagList = data
     })
@@ -34,6 +44,9 @@ export class ClassificationComponent implements OnInit {
       this.allNote = data
       this.currentNoteList = data
     })
+  }
+
+  ngOnInit() {
   }
   
   ngOnDestroy() {
@@ -51,12 +64,21 @@ export class ClassificationComponent implements OnInit {
     this._activeFalse()
     this.tabIsActive = true
     this.content = '全部'
+    this.currentNoteList = this.allNote
   }
 
   tabClick(data){
     this.tabIsActive = false
     this._activeFalse()
     data.tabIsActive = true
-    this.content = data.name
+    
+    let temporary = []
+    this.allNote.forEach((item, index) => {
+      const jsonStringify = JSON.stringify(item.tag)
+      if(jsonStringify.indexOf(data.name) !== -1){
+        temporary.push(item)
+      }
+    })
+    this.currentNoteList = temporary
   }
 }

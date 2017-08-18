@@ -33,16 +33,21 @@
     transition: opacity 1s;
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    &::-webkit-scrollbar{
+      width: 0px;
+    }
     .note-item{
-      width: 26%;
-      border: 1px solid #ececec;
+      width: 28%;
+      height: 180px;
+      background-color: #f7f7f7;
       border-radius: 3px;
-      margin: 10px 2%;
-      padding: 10px;
+      margin: 1% 1%;
+      padding: 1%;
       text-align: center;
       .title{
         font-size: 16px;
-        color: #32d3c3;
+        color: #919191;
         cursor: pointer;
       }
       .date{
@@ -61,7 +66,10 @@
         margin-bottom: 1rem;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: -webkit-box;
+      }
+      &:hover{
+        box-shadow: 0px 0px 6px #ccc;
+        cursor: pointer;
       }
     }
   }

@@ -1,3 +1,4 @@
+import { MsgContainerComponent } from './../../component-module/msg/msg-container.component';
 import { Subscription } from 'rxjs/Subscription';
 import { NoteService } from '../../services/note/note.service';
 import { TagService } from './../../services/tag/tag.service';
@@ -16,6 +17,8 @@ export class AddNoteComponent implements OnInit {
   title = ''
   content = ''
   tagList = []
+  
+  msg = new MsgContainerComponent()
 
   constructor(
     private tagService: TagService,
@@ -43,14 +46,22 @@ export class AddNoteComponent implements OnInit {
   markdownValueChange(data){
     this.content = data
   }
-  
+
   // 保存笔记
   save(){
-    this.noteService._addNote({
-      title: this.title,
-      content: this.content,
-      tag: this.tagList,
-      date: new Date()
-    })
+    if (this.title === '' || this.content !== '' || this.tagList.length === 0){
+      this.msg.createMsg('ms')
+    } else {
+      let sub = this.noteService._addNote({
+        title: this.title,
+        content: this.content,
+        tag: this.tagList,
+        date: new Date()
+      }).subscribe((data) => {
+        if(data.code === 200){
+          // this.msg.createdMsg('保存成功！')
+        }
+      })
+    }
   }
 }

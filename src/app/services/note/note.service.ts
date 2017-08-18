@@ -15,11 +15,7 @@ export class NoteService {
   
   // 添加
   _addNote(param: addNote){
-    this.http.post('/api/addNote', param)
-      .map(res => res.json())
-      .subscribe((data) => {
-        console.log(data)
-      })
+    return this.http.post('/api/addNote', param).map(res => res.json())
   }
   
   // 编辑
