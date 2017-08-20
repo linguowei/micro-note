@@ -1,4 +1,4 @@
-import { ComponentModuleModule } from './component-module/component-module.module';
+import { MsgService } from './services/msg/msg.service';
 import { NoteService } from './services/note/note.service';
 import { TagService } from './services/tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +18,7 @@ import { DropdownComponent } from './component/dropdown/dropdown.component';
 import { ButtonComponent } from './component/button/button.component';
 import { LoadingBarService } from './services/loading-bar/loading-bar.service';
 import { TagComponent } from './page/tag/tag.component';
-import { ClassificationComponent, classificationTabsContentHeight } from './page/classification/classification.component';
+import { ClassificationComponent, ClassificationTabsContentHeightDirective } from './page/classification/classification.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { ClassificationComponent, classificationTabsContentHeight } from './page
     IndexComponent,
     MarkdownEditorDirective, // MarkdownEditor指令
     CalculationContentHeightDirective,
-    classificationTabsContentHeight,
+    ClassificationTabsContentHeightDirective,
     DropdownComponent, ButtonComponent, TagComponent, ClassificationComponent // 自定义Dropdown、Button组件
   ],
   imports: [
@@ -38,9 +38,8 @@ import { ClassificationComponent, classificationTabsContentHeight } from './page
     FormsModule, // 表单模块
     AppRoutingModule, // 路由配置模块
     BrowserAnimationsModule, // 动画模块
-    ComponentModuleModule,
   ],
-  providers: [LoadingBarService, TagService, NoteService], // LoadingBar, TagListService 服务 
+  providers: [LoadingBarService, TagService, NoteService, MsgService], // LoadingBar, TagListService 服务 
   bootstrap: [AppComponent], // 根组件
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

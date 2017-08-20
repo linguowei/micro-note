@@ -1,4 +1,4 @@
-import { MsgContainerComponent } from './../../component-module/msg/msg-container.component';
+import { MsgService } from './../../services/msg/msg.service';
 import { Subscription } from 'rxjs/Subscription';
 import { NoteService } from '../../services/note/note.service';
 import { TagService } from './../../services/tag/tag.service';
@@ -17,12 +17,11 @@ export class AddNoteComponent implements OnInit {
   title = ''
   content = ''
   tagList = []
-  
-  msg = new MsgContainerComponent()
 
   constructor(
     private tagService: TagService,
-    private noteService: NoteService
+    private noteService: NoteService,
+    private msg: MsgService
   ) { }
 
   ngOnInit() {
@@ -50,7 +49,7 @@ export class AddNoteComponent implements OnInit {
   // 保存笔记
   save(){
     if (this.title === '' || this.content !== '' || this.tagList.length === 0){
-      this.msg.createMsg('ms')
+      this.msg.info('请输入完整的笔记信息！')
     } else {
       let sub = this.noteService._addNote({
         title: this.title,
@@ -59,7 +58,7 @@ export class AddNoteComponent implements OnInit {
         date: new Date()
       }).subscribe((data) => {
         if(data.code === 200){
-          // this.msg.createdMsg('保存成功！')
+          this.msg.info('保存成功！')
         }
       })
     }

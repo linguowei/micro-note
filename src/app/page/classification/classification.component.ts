@@ -7,7 +7,7 @@ import { Component, OnInit, Directive, ElementRef } from '@angular/core';
 @Directive({
   selector: '[classificationTabsContentHeight]'
 })
-export class classificationTabsContentHeight{
+export class ClassificationTabsContentHeightDirective{
   constructor(el: ElementRef){
     el.nativeElement.style.height = window.innerHeight - 80 + 'px'
     el.nativeElement.style.maxHeight = window.innerHeight - 80 + 'px'

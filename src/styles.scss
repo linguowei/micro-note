@@ -25,3 +25,43 @@ a:hover, a:visited, a:link, a:active {
   top: 0;
   left: 0;
 }
+
+// msg-style
+.msg-wrap{
+  width: 100vw;
+  position: fixed;
+  top: 16px;
+  left: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: msgAnimation 200ms;
+  .msg-content{
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px #ccc;
+    background-color: #fff;
+    padding: 6px;
+    text-align: center;
+    display: inline-block;
+    min-width: 200px;
+    font-size: 14px;
+    color: #5a5a5a;
+    i{
+      margin-right: 5px;
+    }
+  }
+}
+
+@keyframes msgAnimation {
+  from {
+    // opacity: 1;
+    transform: 'translateY(16px)';
+    // top: 0px;
+  }
+  to {
+    // opacity: 0;
+    transform: 'translateY(0px)';
+    // top: 16px;
+  }
+}
