@@ -48,7 +48,7 @@ export class AddNoteComponent implements OnInit {
 
   // 保存笔记
   save(){
-    if (this.title === '' || this.content !== '' || this.tagList.length === 0){
+    if (this.title === '' || this.content === '' || this.tagList.length === 0){
       this.msg.info('请输入完整的笔记信息！')
     } else {
       let sub = this.noteService._addNote({

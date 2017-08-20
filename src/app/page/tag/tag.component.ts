@@ -18,11 +18,19 @@ export class TagComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.tagListSub = this.tagService.tagList$.subscribe((data) => {
+      this.tagList = data
+    })
+
     this.tagService._getTagList().subscribe((res) => {
       this.tagList = res.data
     })
   }
   
+  ngOnDestroy() { 
+    this.tagListSub.unsubscribe()
+  }
+
   addTag(value){
     this.tagService._addTag(value)
     this.tagName = ''

@@ -39,7 +39,7 @@ export class ClassificationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tagService.tagList$.subscribe((data) => {
+    this.tagListSub = this.tagService.tagList$.subscribe((data) => {
       this.tagList = data
     })
     this.tagService._getTagList().subscribe((res) => {
