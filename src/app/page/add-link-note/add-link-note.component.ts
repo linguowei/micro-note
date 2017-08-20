@@ -1,3 +1,5 @@
+import { MsgService } from './../../services/msg/msg.service';
+import { NoteService } from './../../services/note/note.service';
 import { style } from '@angular/animations';
 import { TagService } from './../../services/tag/tag.service';
 import { LoadingBarService } from './../../services/loading-bar/loading-bar.service';
@@ -60,7 +62,7 @@ export class CalculationContentHeightDirective {
 })
 export class AddLinkNoteComponent implements OnInit {
   isShowMarkdownEditor = false
-  dropdownMenu = this.tagService._getTagList()
+  dropdownMenu = []
   labelList = []
   noteTitle: String = ''
   noteContent: String = ''
@@ -68,10 +70,15 @@ export class AddLinkNoteComponent implements OnInit {
     private tagService: TagService,
     private loadingBar : LoadingBarService,
     private http: Http,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private noteService: NoteService,
+    private msg: MsgService
   ) { }
 
   ngOnInit() {
+    this.tagService._getTagList().subscribe((res) => {
+      this.dropdownMenu = res.data
+    })
   }
 
   onEnter(value){
@@ -84,7 +91,7 @@ export class AddLinkNoteComponent implements OnInit {
 
       marked(data.content, function (err, content) {
         if (err) throw err;
-        console.log(content);
+        // console.log(content);
       });
 
       this.loadingBar.$Loading.finish()
@@ -95,6 +102,25 @@ export class AddLinkNoteComponent implements OnInit {
       this.noteContent = data.content
 
     })
+  }
+  
+  // 保存笔记
+  save(){
+     if (this.noteTitle === '' || this.noteContent === '' || this.labelList.length === 0){
+      this.msg.info('请输入完整的笔记信息！')
+    } else {
+      let sub = this.noteService._addNote({
+        title: this.noteTitle,
+        content: this.noteContent,
+        tag: this.labelList,
+        date: new Date()
+      }).subscribe((data) => {
+        if(data.code === 200){
+          this.msg.info('保存成功！')
+          this.noteService._updateAllNote()
+        }
+      })
+    }
   }
 
   selectItem(data){

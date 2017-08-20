@@ -35,8 +35,15 @@ export class ClassificationComponent implements OnInit {
     private tagService : TagService,
     private noteService: NoteService
   ) { 
-    this.tagListSub = this.tagService.tagList$.subscribe((data) => {
+    
+  }
+
+  ngOnInit() {
+    this.tagService.tagList$.subscribe((data) => {
       this.tagList = data
+    })
+    this.tagService._getTagList().subscribe((res) => {
+      this.tagList = res.data
     })
     this._activeFalse()
 
@@ -44,9 +51,6 @@ export class ClassificationComponent implements OnInit {
       this.allNote = data
       this.currentNoteList = data
     })
-  }
-
-  ngOnInit() {
   }
   
   ngOnDestroy() {

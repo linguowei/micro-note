@@ -9,7 +9,7 @@ import { Subscription } from "rxjs/Subscription";
 })
 export class TagComponent implements OnInit {
   tagListSub: Subscription
-  tagList = this.tagService._getTagList()
+  tagList = []
   tagName: String = ''
   constructor(
     private tagService: TagService
@@ -18,14 +18,9 @@ export class TagComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tagListSub = this.tagService.tagList$.subscribe((data) => {
-      this.tagList = data
+    this.tagService._getTagList().subscribe((res) => {
+      this.tagList = res.data
     })
-  }
-  
-  ngOnDestroy() {
-    // 取消订阅防止内存泄露
-    this.tagListSub.unsubscribe()
   }
   
   addTag(value){

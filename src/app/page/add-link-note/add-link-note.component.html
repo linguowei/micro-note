@@ -24,11 +24,9 @@
       </ul>
     </div>
     <div class="add-note-toolbar-btn">
-      <app-button [Icon]="'ion-checkmark-circled'">确认</app-button>
+      <app-button [Icon]="'ion-checkmark-circled'"  (click)="save()">保存</app-button>
       <app-button [Icon]="'ion-reply'" (click)="cancel()">取消</app-button>
     </div>
   </div>
-  <div [innerHTML]="noteContent" class="preview" previewHeight>
-    
-  </div> 
+  <div [innerHTML]="noteContent" class="preview" previewHeight></div> 
 </div>

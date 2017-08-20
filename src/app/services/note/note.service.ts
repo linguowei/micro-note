@@ -10,7 +10,7 @@ export class NoteService {
   constructor(
     private http: Http
   ) { 
-    this.updateAllNote()
+    this._updateAllNote()
   }
   
   // 添加
@@ -33,7 +33,7 @@ export class NoteService {
     
   }
 
-  private updateAllNote(){
+  _updateAllNote(){
     this.http.get('/api/allNote')
       .map(res => res.json())
       .subscribe((data) => {

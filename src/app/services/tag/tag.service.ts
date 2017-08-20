@@ -36,7 +36,7 @@ export class TagService {
   
   // 获取整个列表
   _getTagList(){
-    return this.tagList
+    return this.http.get('/api/TagList').map(res => res.json())
   }
 
   private updateTagList(){

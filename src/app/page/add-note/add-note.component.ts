@@ -59,6 +59,7 @@ export class AddNoteComponent implements OnInit {
       }).subscribe((data) => {
         if(data.code === 200){
           this.msg.info('保存成功！')
+          this.noteService._updateAllNote()
         }
       })
     }

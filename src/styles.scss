@@ -36,7 +36,6 @@ a:hover, a:visited, a:link, a:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: msgAnimation 200ms;
   .msg-content{
     border-radius: 4px;
     box-shadow: 0px 0px 6px #ccc;
@@ -50,18 +49,5 @@ a:hover, a:visited, a:link, a:active {
     i{
       margin-right: 5px;
     }
-  }
-}
-
-@keyframes msgAnimation {
-  from {
-    // opacity: 1;
-    transform: 'translateY(16px)';
-    // top: 0px;
-  }
-  to {
-    // opacity: 0;
-    transform: 'translateY(0px)';
-    // top: 16px;
   }
 }
