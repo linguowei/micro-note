@@ -4,7 +4,8 @@ const noteSchema = db.Schema({
   title: String,
   content: String,
   tag: Array,
-  date: Date
+  date: Date,
+  sourceLink: String
 })
 
 const tagSchema = db.Schema({

@@ -24,8 +24,8 @@ export class NoteService {
   }
 
   // 删除
-  _deleteNote(){
-
+  _deleteNote(id){
+    return this.http.post('/api/deleteNote', {id: id}).map(res => res.json())
   }
 
   // 获取单个
@@ -46,5 +46,6 @@ interface addNote {
   title: String,
   content: String,
   tag: Array<object>,
-  date: Date
+  date: Date,
+  sourceLink: String
 }

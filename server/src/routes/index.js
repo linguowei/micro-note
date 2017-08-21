@@ -59,6 +59,17 @@ router.post('/api/addNote', async (ctx, next) => {
 	})
 })
 
+router.post('/api/deleteNote', async (ctx, next	) => {
+	await Models.NoteList.remove({_id: ctx.request.body.id}, (err, docs) => {
+		if(err){
+			ctx.throw(500)
+			return
+		}
+		successState.data = docs
+		ctx.response.body = successState
+	})
+})
+
 /**
  * 标签 C、R、U、D
  */

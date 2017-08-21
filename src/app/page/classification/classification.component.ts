@@ -3,6 +3,7 @@ import { NoteService } from '../../services/note/note.service';
 import { Subscription } from 'rxjs/Subscription';
 import { TagService } from '../../services/tag/tag.service';
 import { Component, OnInit, Directive, ElementRef } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Directive({
   selector: '[classificationTabsContentHeight]'
@@ -33,7 +34,8 @@ export class ClassificationComponent implements OnInit {
   
   constructor(
     private tagService : TagService,
-    private noteService: NoteService
+    private noteService: NoteService,
+    private router: Router
   ) { 
     
   }
@@ -84,5 +86,10 @@ export class ClassificationComponent implements OnInit {
       }
     })
     this.currentNoteList = temporary
+  }
+
+  viewNote(data){
+    this.router.navigate(['/viewNote'])
+    localStorage.setItem('noteItemInfo', JSON.stringify(data))
   }
 }

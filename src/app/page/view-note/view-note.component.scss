@@ -1,0 +1,236 @@
+@import '../../../assets/ionicons.min.css'; /* 图标库 */
+.view-note-wrap{
+  margin: 0 10%;
+  padding: 1rem;
+  .view-note-title{
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    align-content: center;
+    font-size: 20px;
+  }
+  .note-info{
+    border-bottom: 1px #ccc dashed;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    .edit{
+      height: 25px;
+      line-height: 30px;
+      color: #999999;
+      font-size: 16px;
+      i{
+        margin-right: 25px;
+        cursor: pointer;
+      }
+    }
+    .note-time{
+      height: 25px;
+      line-height: 30px;
+      color: #999999;
+    }
+    .note-tag{
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin: 0;
+      list-style: none;
+      padding-left: 10px;
+      li{
+        min-width: 40px;
+        text-align: center;
+        height: 20px;
+        line-height: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin: 3px 3px;
+        cursor: pointer;
+        color: #919191;
+        padding: 0 5px;
+      }
+    }
+    .sourceLink{
+      width: 170px;
+      max-width: 170px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 30px;
+      height: 25px;
+      position: absolute;
+      right: 0;
+      color: #3db8c1;
+      cursor: pointer;
+    }
+  }
+
+  .preview{
+    font-size: 14px !important;
+    padding: 10px 30px;
+    background-color: #fbfbfb;
+    pre{
+      background-color: #eee;
+      padding: 5px;
+      max-width: 100%;
+      overflow: auto;
+    }
+    img{
+      max-width: 100%;
+    }
+    th, td{
+      border: 1px solid #E6E6E6;
+      padding: 5px 8px;
+    }
+    table{
+      border-collapse: collapse;
+    }
+    blockquote{
+      margin: 1em 0;
+      border-left: 4px solid #ddd;
+      padding: 0 1.3rem;
+      color: #666;
+    }
+    h1{
+      margin: 1.3rem 0;
+      line-height: 1.2;
+      font-size: 2em;
+    }
+    h2{
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    h3{
+      margin: 20px 0;
+    }
+    p{
+      line-height: 2;
+      display: block;
+      margin-bottom: 20px;
+      a{
+        color: #3db8c1;
+        text-decoration: none;
+      }
+    }
+    ul{
+      padding-left: 2.7rem;
+      display: block;
+      list-style-type: disc;
+      li{
+        margin-bottom: .6rem;
+        list-style: inherit;
+      }
+    }
+    code{
+      font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+      font-size: 1rem;
+      padding: 2px 5px;
+      word-break: break-word;
+      color: #49a9ee;
+      background-color: #f8f8f8;
+      border-radius: 2px;
+      overflow-x: scroll;
+      font-size: 12px;
+      margin: 0 4px;
+    }
+    pre{
+      white-space: pre;
+      margin: 1em 0px;
+      padding: 5px;
+      width: 100%;
+      max-width: 100%;
+      overflow: scroll;
+      border-radius: 3px;
+      code{
+        color: #333 !important;
+        background-color: #eeeeee;
+        .hljs-function{
+          color: #333;
+        }
+        .hljs-keyword{
+          color: #333;
+          font-weight: 700;
+        }
+        .hljs-title{
+          color: #900;
+          font-weight: 700;
+        }
+        .hljs-params{
+          color: #333;
+        }
+        .hljs-comment{
+          color: #998;
+        }
+        .hljs-string{
+          color: #d14;
+        }
+        .hljs-number{
+          color: teal;
+        }
+        .hljs-literal{
+          color: teal;
+        }
+      }
+    }
+  }
+}
+
+.delect-wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: .97;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  .delect-content{
+    width: 650px;
+    height: 310px;
+    margin: 0 auto;
+    .icon{
+      text-align: center;
+      height: 42px;
+      line-height: 42px;
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #ababab;
+    }
+    .text{
+      text-align: center;
+      margin: 0 40%;
+      height: 50px;
+      line-height: 50px;
+      border-bottom: 1px #d9d9d9 solid;
+    }
+    .tip{
+      height: 120px;
+      line-height: 120px;
+      font-size: 20px;
+      text-align: center;
+      color: #383838;
+      em{
+        font-weight: bold;
+      }
+    }
+    .btn{
+      text-align: center;
+      button{
+        color: #606060;
+        background-color: #ececec;
+        border: 1px solid #d9d9d9;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 0 4px;
+        padding: 9px 71px;
+        font-size: 13px;
+        outline: none;
+      }
+      .delete{
+        background-color: #42b983;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
+}

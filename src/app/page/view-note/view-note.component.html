@@ -1,0 +1,43 @@
+<div class="view-note-wrap">
+  <div class="view-note-title">
+    <div>
+      {{noteInfo.title}}
+    </div>
+  </div>
+  <div class="note-info">
+    <div class="edit">
+      <i class="ion-compose" *ngIf="noteInfo.sourceLink === ''"></i>
+      <i class="ion-trash-b" (click)="delect()"></i>
+    </div>
+    <div class="note-time">
+      {{noteInfo.date | date:"yyyy-MM-dd HH:mm:ss"}}
+    </div>
+    <ul class="note-tag">
+      <li *ngFor="let item of noteInfo.tag">
+        {{item.name}}
+      </li>
+    </ul>
+    <a class="sourceLink" href="{{noteInfo.sourceLink}}" target="_blank">
+      {{noteInfo.sourceLink}}
+    </a>
+  </div>
+  <div class="preview" [innerHTML]="noteInfo.content" previewHeight></div> 
+</div>
+
+<div class="delect-wrap" *ngIf="isShowDelect">
+  <div class="delect-content">
+    <div class="icon">
+      <i class="ion-trash-a"></i>  
+    </div>
+    <div class="text">
+      删除笔记
+    </div>
+    <div class="tip">
+      确定删除<em>《{{noteInfo.title}}》</em>笔记吗？
+    </div>
+    <div class="btn">
+      <button class="cancel" (click)="cancel()">取消</button>
+      <button class="delete" (click)="confirmDelete()">删除</button>
+    </div>
+  </div>
+</div>

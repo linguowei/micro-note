@@ -7,7 +7,7 @@
   </ul>
   <div class="tab-content" classificationTabsContentHeight>
     <div class="note-item" *ngFor="let item of currentNoteList">
-      <div class="title">
+      <div class="title" (click)="viewNote(item)">
         {{item.title}}
       </div>
       <div class="date">
@@ -16,6 +16,9 @@
       <div class="content">
         {{item.content}}
       </div>
+    </div>
+    <div class="tip" *ngIf="currentNoteList.length===0" >
+      该标签分类下暂无内容
     </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MsgService } from './../../services/msg/msg.service';
 import { Subscription } from 'rxjs/Subscription';
 import { NoteService } from '../../services/note/note.service';
@@ -21,12 +22,16 @@ export class AddNoteComponent implements OnInit {
   constructor(
     private tagService: TagService,
     private noteService: NoteService,
-    private msg: MsgService
+    private msg: MsgService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.dropdownMenuSub = this.tagService.tagList$.subscribe((data) => {
       this.dropdownMenu = data
+    })
+    this.tagService._getTagList().subscribe((res) => {
+      this.dropdownMenu = res.data
     })
   }
 
@@ -55,11 +60,14 @@ export class AddNoteComponent implements OnInit {
         title: this.title,
         content: this.content,
         tag: this.tagList,
-        date: new Date()
-      }).subscribe((data) => {
-        if(data.code === 200){
+        date: new Date(),
+        sourceLink: ''
+      }).subscribe((res) => {
+        if(res.code === 200){
           this.msg.info('保存成功！')
           this.noteService._updateAllNote()
+          localStorage.setItem('noteItemInfo', JSON.stringify(res.data))
+          this.router.navigate(['/viewNote'])
         }
       })
     }

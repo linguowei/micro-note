@@ -16,7 +16,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
       transition('inactive => active', animate('300ms ease-in')),
       transition('active => inactive', animate('300ms ease-out'))
     ])
-  ]
+  ],
+  host: {
+    '(document:click)': 'documentClick($event)',
+  }
 })
 export class DropdownComponent implements OnInit {
   dropdownMenu = {
@@ -26,12 +29,18 @@ export class DropdownComponent implements OnInit {
   @Input() DropdownMenu: Array<dropdownItem>;
   @Output() SelectItem = new EventEmitter<any>();
   constructor() { }
-
+  
   ngOnInit() {
   }
+  
+  documentClick(e){
+    this.dropdownMenu.state = 'inactive'
+    e.stopPropagation()
+  }
 
-  toggleDropdownMenu(): void{
+  toggleDropdownMenu(e): void{
     this.dropdownMenu.state == 'active' ? this.dropdownMenu.state = 'inactive' : this.dropdownMenu.state = 'active'
+    e.stopPropagation()
   }
   selectItem(data): void{
     this.dropdownMenu.state = 'inactive'

@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
         <div class="name">Micro-note</div>
         <div class="introduction">简约型笔记应用</div>
         <div class="introduction">支持链接动态生成文章</div>
+        <div class="introduction">支持搜索、标签分类管理等</div>
       </div>
       <div class="start">
         <a href="https://github.com/linguowei/micro-note" target="_blank" class="github">GitHub</a>
@@ -48,12 +49,13 @@ import { Component, OnInit } from '@angular/core';
       color: #34495e;
       font-size: 15px;
       font-family: serif;
+      margin-top: 5px;
     }
     .index .start a{
       font-size: 15px;
       border: 1px solid #42b983;
       padding: 8px;
-      border-radius: 10px;
+      border-radius: 5px;
     }
     .github{
       color: #42b983;

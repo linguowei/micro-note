@@ -1,3 +1,4 @@
+import { ViewNoteComponent } from './page/view-note/view-note.component';
 import { ClassificationComponent } from './page/classification/classification.component';
 import { TagComponent } from './page/tag/tag.component';
 import { SearchComponent } from './page/search/search.component';
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent,
+    children: []
+  },
+  {
+    path: 'viewNote',
+    component: ViewNoteComponent,
     children: []
   },
   {

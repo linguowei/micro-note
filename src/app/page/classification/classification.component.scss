@@ -33,6 +33,8 @@
     transition: opacity 1s;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
     width: 100%;
     &::-webkit-scrollbar{
       width: 0px;
@@ -47,8 +49,13 @@
       text-align: center;
       .title{
         font-size: 16px;
-        color: #919191;
+        color: #484848;
         cursor: pointer;
+        height: 24px;
+        max-height: 24px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       .date{
         color: #aaa;
@@ -60,17 +67,27 @@
         text-align: left;
         padding: 10px 0;
         color: #666;
-        min-height: 4rem;
-        max-height: 4rem;
+        height: 5rem;
+        max-height: 5rem;
         line-height: 1.2rem;
         margin-bottom: 1rem;
-        overflow: hidden;
         text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
       }
       &:hover{
         box-shadow: 0px 0px 6px #ccc;
         cursor: pointer;
       }
+    }
+    .tip{
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      color: #ccc;
+      margin-top: 20vh;
     }
   }
 }

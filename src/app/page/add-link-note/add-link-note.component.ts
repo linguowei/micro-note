@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MsgService } from './../../services/msg/msg.service';
 import { NoteService } from './../../services/note/note.service';
 import { style } from '@angular/animations';
@@ -58,7 +59,7 @@ export class CalculationContentHeightDirective {
   selector: 'app-add-link-note',
   templateUrl: './add-link-note.component.html',
   styleUrls: ['./add-link-note.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class AddLinkNoteComponent implements OnInit {
   isShowMarkdownEditor = false
@@ -66,13 +67,15 @@ export class AddLinkNoteComponent implements OnInit {
   labelList = []
   noteTitle: String = ''
   noteContent: String = ''
+  sourceLink: String = ''
   constructor(
     private tagService: TagService,
     private loadingBar : LoadingBarService,
     private http: Http,
     private sanitizer: DomSanitizer,
     private noteService: NoteService,
-    private msg: MsgService
+    private msg: MsgService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -82,6 +85,7 @@ export class AddLinkNoteComponent implements OnInit {
   }
 
   onEnter(value){
+    this.sourceLink = value
     this.loadingBar.$Loading.start()
     this.http.post('/api/generateNote', {
       link: value
@@ -113,11 +117,14 @@ export class AddLinkNoteComponent implements OnInit {
         title: this.noteTitle,
         content: this.noteContent,
         tag: this.labelList,
-        date: new Date()
-      }).subscribe((data) => {
-        if(data.code === 200){
+        date: new Date(),
+        sourceLink: this.sourceLink
+      }).subscribe((res) => {
+        if(res.code === 200){
           this.msg.info('保存成功！')
           this.noteService._updateAllNote()
+          localStorage.setItem('noteItemInfo', JSON.stringify(res.data))
+          this.router.navigate(['/viewNote'])
         }
       })
     }
