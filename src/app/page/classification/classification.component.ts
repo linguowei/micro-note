@@ -2,7 +2,7 @@ import { style } from '@angular/animations';
 import { NoteService } from '../../services/note/note.service';
 import { Subscription } from 'rxjs/Subscription';
 import { TagService } from '../../services/tag/tag.service';
-import { Component, OnInit, Directive, ElementRef } from '@angular/core';
+import { Component, OnInit, Directive, ElementRef, Pipe, PipeTransform } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Directive({
@@ -13,6 +13,13 @@ export class ClassificationTabsContentHeightDirective{
     el.nativeElement.style.height = window.innerHeight - 80 + 'px'
     el.nativeElement.style.maxHeight = window.innerHeight - 80 + 'px'
     el.nativeElement.style.overflow = 'auto'
+  }
+}
+
+@Pipe({name: 'filterNoteContent'})
+export class FilterNoteContentPipe implements PipeTransform {
+  transform(value: String): String {
+    return value.replace(/[^\u4e00-\u9fa5]/gi,'')
   }
 }
 

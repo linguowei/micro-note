@@ -11,10 +11,11 @@ import marked from 'marked'
   encapsulation: ViewEncapsulation.Native
 })
 export class ViewNoteComponent implements OnInit {
+  isShowEdit = false
   noteInfo = {
     content: String,
     date: String,
-    sourceLink: String,
+    sourceLink: '',
     tag: Array,
     title: String,
     __v: Number,
@@ -26,11 +27,12 @@ export class ViewNoteComponent implements OnInit {
     private noteService: NoteService,
     private msgService: MsgService,
     private router: Router
-  ) { }
+  ) {  }
 
   ngOnInit() {
     this.noteInfo = JSON.parse(localStorage.getItem('noteItemInfo'))
     this.noteInfo.content = marked(this.noteInfo.content)
+    this.noteInfo.sourceLink === '' ? this.isShowEdit = true : this.isShowEdit = false
   }
   
   delect(){

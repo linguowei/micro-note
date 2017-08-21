@@ -1,6 +1,6 @@
 const db = require('./db')
 
-const noteSchema = db.Schema({
+const noteSchema = new db.Schema({
   title: String,
   content: String,
   tag: Array,
@@ -8,7 +8,7 @@ const noteSchema = db.Schema({
   sourceLink: String
 })
 
-const tagSchema = db.Schema({
+const tagSchema = new db.Schema({
   name: String
 })
 

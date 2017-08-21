@@ -19,6 +19,7 @@ const successState = {
  */
 
 router.get('/api/allNote', async (ctx, next) => {
+	next()
 	await Models.NoteList.find({}, (err, docs) => {
 		if(err){
 			ctx.throw(500)
@@ -30,6 +31,7 @@ router.get('/api/allNote', async (ctx, next) => {
 })
 
 router.post('/api/generateNote', async (ctx, next) => {
+	next()
 	await new Promise((resolve, reject) => {
 		read(ctx.request.body.link, (err, article, meta) => {
 			if (err) {
@@ -49,6 +51,7 @@ router.post('/api/generateNote', async (ctx, next) => {
 })
 
 router.post('/api/modify', async (ctx, next) => {
+	next()
 	await new Promise((resolve, reject) => {
 		Models.NoteList.update({_id: ctx.request.body._id}, ctx.request.body, (err, docs) => {
 			if(err){
@@ -65,6 +68,7 @@ router.post('/api/modify', async (ctx, next) => {
 })
 
 router.post('/api/addNote', async (ctx, next) => {
+	next()
 	await new Models.NoteList(ctx.request.body).save((err, docs) => {
 		if(err){
 			ctx.throw(500)
@@ -77,6 +81,7 @@ router.post('/api/addNote', async (ctx, next) => {
 
 
 router.post('/api/deleteNote', async (ctx, next	) => {
+	next()
 	await Models.NoteList.remove({_id: ctx.request.body.id}, (err, docs) => {
 		if(err){
 			ctx.throw(500)
@@ -92,6 +97,7 @@ router.post('/api/deleteNote', async (ctx, next	) => {
  */
 
 router.post('/api/addTag', async (ctx, next) => {
+	next()
 	await new Models.TagList(ctx.request.body).save((err, docs) => {
 		if(err){
 			ctx.throw(500)
@@ -103,6 +109,7 @@ router.post('/api/addTag', async (ctx, next) => {
 })
 
 router.post('/api/deleteTag', async (ctx, next) => {
+	next()
 	await Models.TagList.remove({_id: ctx.request.body.id}, (err, docs) => {
 		if(err){
 			ctx.throw(500)
@@ -114,6 +121,7 @@ router.post('/api/deleteTag', async (ctx, next) => {
 })
 
 router.get('/api/TagList', async (ctx, next) => {
+	next()
 	await Models.TagList.find({}, (err, docs) => {
 		if(err){
 			ctx.throw(500)
@@ -124,7 +132,8 @@ router.get('/api/TagList', async (ctx, next) => {
 	})
 })
 
-router.get('*', (ctx) => {
+router.get('/', (ctx, next) => {
+	next()
 	const html = fs.readFileSync(resolve('../../../dist/' + 'index.html'), 'utf-8')
 	ctx.body = html
 })

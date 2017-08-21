@@ -6,7 +6,7 @@
   </div>
   <div class="note-info">
     <div class="edit">
-      <i class="ion-compose" (click)="editNote()" *ngIf="noteInfo.sourceLink === ''"></i>
+      <i class="ion-compose" (click)="editNote()" *ngIf="isShowEdit"></i>
       <i class="ion-trash-a" (click)="delect()"></i>
     </div>
     <div class="note-time">

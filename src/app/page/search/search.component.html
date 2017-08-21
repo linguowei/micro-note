@@ -1,5 +1,18 @@
 <div class="search-wrap">
   <div class="input-wrap">
-    <input class="search-input" #myInput placeholder="请输入笔记标题关键字" autofocus="autofocus" (keydown.enter)="onEnter(myInput.value)"/>
+    <input class="search-input" [(ngModel)]="searchName" placeholder="请输入笔记标题或标签关键字" autofocus="autofocus" (keydown.enter)="onEnter(searchName)"/>
+  </div>
+  <div class="tab-content" classificationTabsContentHeight>
+    <div class="note-item" *ngFor="let item of resultNoteList">
+      <div class="title" (click)="viewNote(item)">
+        {{item.title}}
+      </div>
+      <div class="date">
+        {{item.date | date:"yyyy-MM-dd HH:mm:ss"}}
+      </div>
+      <div class="content">
+        {{item.content}}
+      </div>
+    </div>
   </div>
 </div>

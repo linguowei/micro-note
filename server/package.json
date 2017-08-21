@@ -16,7 +16,7 @@
     "koa-cors": "0.0.16",
     "koa-router": "^7.2.1",
     "koa-static-cache": "^5.1.1",
-    "mongoose": "^4.11.6",
+    "mongoose": "^4.11.7",
     "node-readability": "^3.0.0"
   },
   "devDependencies": {
