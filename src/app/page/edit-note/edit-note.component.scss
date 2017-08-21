@@ -1,0 +1,79 @@
+@import '../../directives/markdown-editor/simplemde.min.css'; 
+.add-note-wrap {
+  margin: 0 10%;
+  padding: 1rem;
+}
+.editor-toolbar{
+  color: #ccc;
+}
+.add-note-title{
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color:#4e4e4e;
+  }
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:#999;
+}
+.add-note-toolbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.add-note-toolbar-label{
+  width: 75%;
+}
+.add-note-toolbar-dropdown{
+  width: 150px;
+  float: left;
+}
+.add-note-toolbar-labellist{
+  width: 70%;
+  max-width: 70%;
+  overflow: hidden;
+  display: flex;
+  li{
+    margin: 0 3px;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    padding: 0 6px;
+    a{
+      font-size: 13px;
+      color: #808b96;
+    };
+    i{
+      font-size: 12px;
+      cursor: pointer;
+      border-left: 1px solid #ececec;
+      color: #ccc;
+      &:hover{
+        color: #808b96;
+      };
+      &::before{
+        margin-left: 4px;
+      }
+    };
+  };
+  &::-webkit-scrollbar{
+    width: 0px;
+  }
+}
+.add-note-toolbar-btn{
+  width: 25%;
+  align-self: flex-end;
+  app-button{
+    float: right;
+    margin-left: 5px;
+  }
+}

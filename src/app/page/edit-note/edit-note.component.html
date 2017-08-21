@@ -1,0 +1,25 @@
+<div class="add-note-wrap">
+  <div class="add-note-title">
+    <input type="text" placeholder="请输入笔记标题" [(ngModel)]="title">
+  </div>
+  <div class="add-note-toolbar">
+    <div class="add-note-toolbar-label">
+      <div class="add-note-toolbar-dropdown">
+        <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
+      </div>
+      <ul class="add-note-toolbar-labellist">
+        <li *ngFor="let item of tagList; let i=index">
+          <span>{{item.name}}</span>
+          <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="add-note-toolbar-btn">
+      <app-button [Icon]="'ion-checkmark-circled'" (click)="save()">保存</app-button>
+      <app-button [Icon]="'ion-reply'" (click)="cancel()">取消</app-button>
+    </div>
+  </div>
+  <div myMarkdownEditor [inputMarkdownEditorValue]="noteInfo.content" (MarkdownEditorValue)="markdownValueChange($event)">
+    <textarea style="display:none"></textarea>
+  </div> 
+</div>

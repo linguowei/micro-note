@@ -48,6 +48,22 @@ router.post('/api/generateNote', async (ctx, next) => {
 	})
 })
 
+router.post('/api/modify', async (ctx, next) => {
+	await new Promise((resolve, reject) => {
+		Models.NoteList.update({_id: ctx.request.body._id}, ctx.request.body, (err, docs) => {
+			if(err){
+				reject(err)
+			}else{
+				resolve(docs)
+			}
+		})
+	}).then((success) => {
+		successState.data = ctx.request.body
+		ctx.response.body = successState
+	})
+
+})
+
 router.post('/api/addNote', async (ctx, next) => {
 	await new Models.NoteList(ctx.request.body).save((err, docs) => {
 		if(err){
@@ -58,6 +74,7 @@ router.post('/api/addNote', async (ctx, next) => {
 		ctx.response.body = successState
 	})
 })
+
 
 router.post('/api/deleteNote', async (ctx, next	) => {
 	await Models.NoteList.remove({_id: ctx.request.body.id}, (err, docs) => {

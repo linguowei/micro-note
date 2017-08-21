@@ -17,9 +17,7 @@ export class MsgService {
   
   info(msg: String){
     let msgWrapEl = document.querySelector('.msg-wrap')
-    if(msgWrapEl){
-
-    }else{
+    if(!msgWrapEl){
       let bodyEl = document.querySelector('body')
       bodyEl.appendChild(this.parseDom(this.createTpl(msg)))
       let msgWrapEl = document.querySelector('.msg-wrap')

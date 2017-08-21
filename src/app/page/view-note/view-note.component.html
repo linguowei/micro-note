@@ -6,8 +6,8 @@
   </div>
   <div class="note-info">
     <div class="edit">
-      <i class="ion-compose" *ngIf="noteInfo.sourceLink === ''"></i>
-      <i class="ion-trash-b" (click)="delect()"></i>
+      <i class="ion-compose" (click)="editNote()" *ngIf="noteInfo.sourceLink === ''"></i>
+      <i class="ion-trash-a" (click)="delect()"></i>
     </div>
     <div class="note-time">
       {{noteInfo.date | date:"yyyy-MM-dd HH:mm:ss"}}

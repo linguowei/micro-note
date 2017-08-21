@@ -52,4 +52,8 @@ export class ViewNoteComponent implements OnInit {
       } 
     })
   }
+
+  editNote(){
+    this.router.navigate(['/editNote'])
+  }
 }

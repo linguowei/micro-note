@@ -20,6 +20,7 @@ import { LoadingBarService } from './services/loading-bar/loading-bar.service';
 import { TagComponent } from './page/tag/tag.component';
 import { ClassificationComponent, ClassificationTabsContentHeightDirective } from './page/classification/classification.component';
 import { ViewNoteComponent } from './page/view-note/view-note.component';
+import { EditNoteComponent } from './page/edit-note/edit-note.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ViewNoteComponent } from './page/view-note/view-note.component';
     MarkdownEditorDirective, // MarkdownEditor指令
     CalculationContentHeightDirective,
     ClassificationTabsContentHeightDirective,
-    DropdownComponent, ButtonComponent, TagComponent, ClassificationComponent, ViewNoteComponent // 自定义Dropdown、Button组件
+    DropdownComponent, ButtonComponent, TagComponent, ClassificationComponent, ViewNoteComponent, EditNoteComponent // 自定义Dropdown、Button组件
   ],
   imports: [
     BrowserModule,

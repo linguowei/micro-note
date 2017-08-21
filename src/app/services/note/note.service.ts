@@ -14,23 +14,18 @@ export class NoteService {
   }
   
   // 添加
-  _addNote(param: addNote){
+  _addNote(param: editNote){
     return this.http.post('/api/addNote', param).map(res => res.json())
   }
   
-  // 编辑
-  _editNote(){
-
+  // 修改
+  _modifyNote(param: editNote){
+    return this.http.post('/api/modify', param).map(res => res.json())
   }
 
   // 删除
   _deleteNote(id){
     return this.http.post('/api/deleteNote', {id: id}).map(res => res.json())
-  }
-
-  // 获取单个
-  _getNoteItem(){
-    
   }
 
   _updateAllNote(){
@@ -42,10 +37,11 @@ export class NoteService {
   }
 }
 
-interface addNote {
+interface editNote {
   title: String,
   content: String,
   tag: Array<object>,
   date: Date,
-  sourceLink: String
+  sourceLink: String,
+  _id?: String
 }

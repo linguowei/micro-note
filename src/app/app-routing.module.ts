@@ -1,3 +1,4 @@
+import { EditNoteComponent } from './page/edit-note/edit-note.component';
 import { ViewNoteComponent } from './page/view-note/view-note.component';
 import { ClassificationComponent } from './page/classification/classification.component';
 import { TagComponent } from './page/tag/tag.component';
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: 'viewNote',
     component: ViewNoteComponent,
+    children: []
+  },
+  {
+    path: 'editNote',
+    component: EditNoteComponent,
     children: []
   },
   {
