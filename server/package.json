@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node ./src/app.js"
+    "dev": "NODE_ENV=development nodemon --exec babel-node ./src/app.js",
+    "pro": "NODE_ENV=production pm2 start ./src/app.js"
   },
   "author": "1368033036@qq.com",
   "license": "ISC",
@@ -17,7 +18,8 @@
     "koa-router": "^7.2.1",
     "koa-static-cache": "^5.1.1",
     "mongoose": "^4.11.7",
-    "node-readability": "^3.0.0"
+    "node-readability": "^3.0.0",
+    "phantom": "^4.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
