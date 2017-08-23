@@ -68,14 +68,8 @@
     font-size: 14px !important;
     padding: 10px 30px;
     background-color: #fbfbfb;
-    pre{
-      background-color: #eee;
-      padding: 5px;
-      max-width: 100%;
-      overflow: auto;
-      img{
-        width: auto;
-      }
+    &::-webkit-scrollbar{
+      width: 0;
     }
     img{
       max-width: 100%;

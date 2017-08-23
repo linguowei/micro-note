@@ -36,6 +36,9 @@
   font-size: 14px !important;
   padding: 10px 30px;
   background-color: #fbfbfb;
+  &::-webkit-scrollbar{
+    width: 0;
+  }
   pre{
     background-color: #eee;
     padding: 5px;
@@ -44,7 +47,6 @@
   }
   img{
     max-width: 100%;
-    width: 100%;
   }
   th, td{
     border: 1px solid #E6E6E6;
