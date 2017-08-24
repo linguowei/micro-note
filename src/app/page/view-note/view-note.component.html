@@ -1,8 +1,6 @@
-<div class="view-note-wrap">
+<div class="view-note-wrap" #viewNotewrap>
   <div class="view-note-title">
-    <div>
       {{noteInfo.title}}
-    </div>
   </div>
   <div class="note-info">
     <div class="edit">
@@ -21,7 +19,16 @@
       {{noteInfo.sourceLink}}
     </a>
   </div>
-  <div class="preview" [innerHTML]="noteInfo.content" previewHeight></div> 
+  <div class="preview" previewHeight></div> 
+</div>
+
+<div class="catalog-wrap">
+  <h3>目录</h3>
+  <ul>
+    <li *ngFor="let item of catalog" [className]="item.tagName" [class.active]="item.isActive">
+      <a (click)="catalogNavigation(item)">{{item.text}}</a>
+    </li>
+  </ul>
 </div>
 
 <div class="delect-wrap" *ngIf="isShowDelect">
