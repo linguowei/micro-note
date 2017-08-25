@@ -41,8 +41,8 @@ export class CalculationContentHeightDirective {
   constructor(
     el: ElementRef
   ){
-    el.nativeElement.style.height = window.innerHeight - 140 + 'px'
-    el.nativeElement.style.maxHeight = window.innerHeight - 140 + 'px'
+    el.nativeElement.style.height = window.innerHeight - 170 + 'px'
+    el.nativeElement.style.maxHeight = window.innerHeight - 170 + 'px'
     el.nativeElement.style.overflow = 'auto'
     
     setTimeout(() => {

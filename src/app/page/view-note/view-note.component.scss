@@ -2,8 +2,11 @@
 .view-note-wrap{
   float: left;
   width: 70%;
-  margin: 0 0 0 5%;
+  margin: 15px 25px 15px 65px;
   padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 6px #ccc;
+  border-radius: 3px;
   .view-note-title{
     text-align: center;
     height: 35px;
@@ -92,6 +95,15 @@
       padding: 10px;
       color: #666;
       background-color: #eeeeee;
+      p {
+        line-height: 2;
+        display: block;
+        margin-bottom: 0px;
+        a {
+          color: #3db8c1;
+          text-decoration: none;
+        }
+      }
       ul{
         list-style-type: none;
         padding: 0;
@@ -186,10 +198,13 @@
 // 目录
 .catalog-wrap{
   overflow: hidden;
+  overflow: auto;
   height: 100vh;
   max-height: 100vh;
-  overflow: auto;
-  border-left: 1px solid #eee;
+  // margin: 15px 15px 15px 0;
+  // border-left: 1px solid #eee;
+  box-shadow: 0 1px 1px #ccc;
+  background-color: #fff;
   h3{
     padding: 5px 20px 5px 20px;
   }
@@ -277,7 +292,7 @@
         outline: none;
       }
       .delete{
-        background-color: #42b983;
+        background-color: #3db8c1;
         color: #fff;
         border: none;
       }

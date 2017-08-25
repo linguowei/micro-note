@@ -1,7 +1,10 @@
-@import '../../directives/markdown-editor/simplemde.min.css'; 
+@import '../../directives/markdown-editor/simplemde.min.scss'; 
 .add-note-wrap {
-  margin: 0 10%;
+  margin: 15px 10%;
   padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 6px #ccc;
+  border-radius: 3px;
 }
 .editor-toolbar{
   color: #ccc;

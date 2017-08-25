@@ -339,6 +339,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
     word-wrap: break-word;
     white-space: pre-wrap;
     word-break: normal;
+
+    /* margin: 15px 0; */
 }
 
 .CodeMirror-linebackground {
@@ -455,10 +457,23 @@ span.CodeMirror-selectedtext {
     bottom: 0;
     height: auto;
     z-index: 9;
+    border-top: 1px solid #ccc;
+}
+
+.CodeMirror-fullscreen ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .CodeMirror-sided {
-    width: 50% !important;
+    width: 49.5vw !important;
+
+    /* overflow: hidden; */
+}
+
+.CodeMirror-sided ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .editor-toolbar {
@@ -470,6 +485,7 @@ span.CodeMirror-selectedtext {
     -o-user-select: none;
     user-select: none;
     padding: 0 10px;
+
     /* border-top: 1px solid #bbb; */
     /* border-left: 1px solid #bbb; */
     /* border-right: 1px solid #bbb; */
@@ -640,6 +656,147 @@ span.CodeMirror-selectedtext {
     box-sizing: border-box;
 }
 
+.editor-preview, .editor-preview-side{
+    &::-webkit-scrollbar{
+        width: 0;
+    }
+    img {
+        max-width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #E6E6E6;
+        padding: 5px 8px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    blockquote {
+        margin: 1em 0;
+        border-left: 4px solid #3db8c1;
+        padding: 10px;
+        color: #666;
+        background-color: #eeeeee;
+        p {
+            line-height: 2;
+            display: block;
+            margin-bottom: 0px;
+    
+            a {
+                color: #3db8c1;
+                text-decoration: none;
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    h1 {
+        margin: 1.3rem 0;
+        line-height: 1.2;
+        font-size: 2em;
+    }
+
+    h2 {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    h3 {
+        margin: 20px 0;
+    }
+
+    p {
+        line-height: 2;
+        display: block;
+        margin-bottom: 20px;
+
+        a {
+            color: #3db8c1;
+            text-decoration: none;
+        }
+    }
+
+    ul {
+        padding-left: 2.7rem;
+        display: block;
+        list-style-type: disc;
+
+        li {
+            margin-bottom: .6rem;
+            list-style: inherit;
+        }
+    }
+
+    code {
+        font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+        font-size: 1rem;
+        padding: 2px 5px;
+        word-break: break-word;
+        color: #49a9ee;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+        overflow-x: scroll;
+        font-size: 12px;
+        margin: 0 4px;
+    }
+
+    pre {
+        white-space: pre;
+        margin: 1em 0px;
+        padding: 5px;
+        width: 98%;
+        max-width: 100%;
+        overflow: scroll;
+        border-radius: 3px;
+        background-color: #eeeeee;
+
+        code {
+            color: #333 !important;
+            background-color: #eeeeee;
+
+            .hljs-function {
+                color: #333;
+            }
+
+            .hljs-keyword {
+                color: #333;
+                font-weight: 700;
+            }
+
+            .hljs-title {
+                color: #900;
+                font-weight: 700;
+            }
+
+            .hljs-params {
+                color: #333;
+            }
+
+            .hljs-comment {
+                color: #998;
+            }
+
+            .hljs-string {
+                color: #d14;
+            }
+
+            .hljs-number {
+                color: teal;
+            }
+
+            .hljs-literal {
+                color: teal;
+            }
+        }
+    }
+}
+
 .editor-statusbar .lines:before {
     content: 'lines: ';
 }
@@ -664,7 +821,7 @@ span.CodeMirror-selectedtext {
 .editor-preview-side {
     position: fixed;
     bottom: 0;
-    width: 50%;
+    width: 50vw;
     top: 50px;
     right: 0;
     z-index: 9;
@@ -676,7 +833,14 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-preview-side > p, .editor-preview > p {
-    margin-top: 0;
+    line-height: 2;
+    display: block;
+    margin-bottom: 0px;
+
+    a {
+        color: #3db8c1;
+        text-decoration: none;
+    }
 }
 
 .editor-preview pre, .editor-preview-side pre {
@@ -726,8 +890,9 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror .CodeMirror-code .cm-comment {
-    background: rgba(0, 0, 0, 0.05);
+    /* background: rgba(0, 0, 0, 0.05); */
     border-radius: 2px;
+    color: #3db8c1;
 }
 
 .CodeMirror .CodeMirror-code .cm-link {
@@ -747,5 +912,5 @@ span.CodeMirror-selectedtext {
 }
 
 .CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
-     background: rgba(255, 0, 0, 0.15); 
+    /* background: rgba(255, 0, 0, 0.15);  */
 }

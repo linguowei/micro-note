@@ -4,10 +4,11 @@
 .left-menu{
   width: 60px;
   height: 100vh;
-  border-right: 1px solid #ececec;
+  // border-right: 1px solid #ececec;
+  box-shadow: 0 1px 6px #ccc;
   float: left;
   ul{
-    padding: 7px;
+    // padding: 7px;
     li{
       text-align: center;
       padding: 15px 0;
@@ -20,7 +21,7 @@
         }
       };
       .router-active{
-        color: #5a5a5a;
+        color: #404040;
       }
     }
   };
@@ -31,4 +32,5 @@
 .content-wrap{
   overflow: hidden;
   height: 100vh;
+  background-color: #f7f7f7;
 }
