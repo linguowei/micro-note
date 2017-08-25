@@ -25,7 +25,7 @@ router.get('/api/allNote', async (ctx, next) => {
 			ctx.throw(500)
 			return
 		}
-		successState.data = docs
+		successState.data = docs.reverse()
 		ctx.response.body = successState
 	})
 })
@@ -123,7 +123,7 @@ router.get('/api/TagList', async (ctx, next) => {
 			ctx.throw(500)
 			return
 		}
-		successState.data = docs
+		successState.data = docs.reverse()
 		ctx.response.body = successState
 	})
 })
