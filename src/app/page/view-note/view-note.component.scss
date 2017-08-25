@@ -88,9 +88,15 @@
     }
     blockquote{
       margin: 1em 0;
-      border-left: 4px solid #ddd;
-      padding: 0 1.3rem;
+      border-left: 4px solid #3db8c1;
+      padding: 10px;
       color: #666;
+      background-color: #eeeeee;
+      ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
     }
     h1{
       margin: 1.3rem 0;

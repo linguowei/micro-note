@@ -53,17 +53,17 @@ import { Component, OnInit } from '@angular/core';
     }
     .index .start a{
       font-size: 15px;
-      border: 1px solid #42b983;
+      border: 1px solid #3db8c1;
       padding: 8px;
       border-radius: 5px;
     }
     .github{
-      color: #42b983;
+      color: #3db8c1;
       margin-right: 15px;
     }
     .started{
       color: #fff;
-      background-color: #42b983;
+      background-color: #3db8c1;
       margin-left: 15px;
     }
   `]
