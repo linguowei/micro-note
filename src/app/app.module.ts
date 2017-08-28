@@ -1,26 +1,33 @@
-import { MsgService } from './services/msg/msg.service';
-import { NoteService } from './services/note/note.service';
-import { TagService } from './services/tag/tag.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from "@angular/forms";
 
+// customize module
 import { AppRoutingModule } from './app-routing.module';
+
+// component
 import { AppComponent } from './app.component';
 import { AddNoteComponent } from './page/add-note/add-note.component';
 import { AddLinkNoteComponent, CalculationContentHeightDirective } from './page/add-link-note/add-link-note.component';
 import { SearchComponent } from './page/search/search.component';
 import { IndexComponent } from './page/index/index.component';
-import { MarkdownEditorDirective } from './directives/markdown-editor/markdown-editor.directive';
 import { DropdownComponent } from './component/dropdown/dropdown.component';
 import { ButtonComponent } from './component/button/button.component';
-import { LoadingBarService } from './services/loading-bar/loading-bar.service';
-import { TagComponent } from './page/tag/tag.component';
 import { ClassificationComponent, ClassificationTabsContentHeightDirective, FilterNoteContentPipe } from './page/classification/classification.component';
 import { ViewNoteComponent } from './page/view-note/view-note.component';
 import { EditNoteComponent } from './page/edit-note/edit-note.component';
+import { TagComponent } from './page/tag/tag.component';
+
+// directive
+import { MarkdownEditorDirective } from './directives/markdown-editor/markdown-editor.directive';
+
+// service
+import { LoadingBarService } from './services/loading-bar/loading-bar.service';
+import { MsgService } from './services/msg/msg.service';
+import { NoteService } from './services/note/note.service';
+import { TagService } from './services/tag/tag.service';
 
 @NgModule({
   declarations: [
@@ -29,10 +36,15 @@ import { EditNoteComponent } from './page/edit-note/edit-note.component';
     AddLinkNoteComponent,
     SearchComponent,
     IndexComponent,
-    MarkdownEditorDirective, // MarkdownEditor指令
+    MarkdownEditorDirective,
     CalculationContentHeightDirective,
     ClassificationTabsContentHeightDirective,
-    DropdownComponent, ButtonComponent, TagComponent, ClassificationComponent, ViewNoteComponent, EditNoteComponent, // 自定义Dropdown、Button组件
+    DropdownComponent, 
+    ButtonComponent, 
+    TagComponent, 
+    ClassificationComponent, 
+    ViewNoteComponent, 
+    EditNoteComponent, 
     FilterNoteContentPipe
   ],
   imports: [
@@ -42,7 +54,7 @@ import { EditNoteComponent } from './page/edit-note/edit-note.component';
     AppRoutingModule, // 路由配置模块
     BrowserAnimationsModule, // 动画模块
   ],
-  providers: [LoadingBarService, TagService, NoteService, MsgService], // LoadingBar, TagListService 服务 
+  providers: [LoadingBarService, TagService, NoteService, MsgService],
   bootstrap: [AppComponent], // 根组件
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -98,7 +98,7 @@ export class ViewNoteComponent implements OnInit {
   catalogNavigation(data){
     let previewDom  = <HTMLElement>document.querySelector('.preview')
     let activeNode = <HTMLElement>previewDom.querySelector(`${data.href}`)
-    previewDom.scrollTop = activeNode.offsetTop-105
+    previewDom.scrollTop = activeNode.offsetTop-120
   }
 
   private parseDom(arg) {

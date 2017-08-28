@@ -38,9 +38,6 @@ export class EditNoteComponent implements OnInit {
     this.dropdownMenuSub = this.tagService.tagList$.subscribe((data) => {
       this.dropdownMenu = data
     })
-    this.tagService._getTagList().subscribe((res) => {
-      this.dropdownMenu = res.data
-    })
 
     this.noteInfo = JSON.parse(localStorage.getItem('noteItemInfo'))
     this.tagList = this.noteInfo.tag

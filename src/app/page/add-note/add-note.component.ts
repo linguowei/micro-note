@@ -30,9 +30,6 @@ export class AddNoteComponent implements OnInit {
     this.dropdownMenuSub = this.tagService.tagList$.subscribe((data) => {
       this.dropdownMenu = data
     })
-    this.tagService._getTagList().subscribe((res) => {
-      this.dropdownMenu = res.data
-    })
   }
 
   ngOnDestroy() {

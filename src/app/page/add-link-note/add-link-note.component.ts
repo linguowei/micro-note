@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { MsgService } from './../../services/msg/msg.service';
 import { NoteService } from './../../services/note/note.service';
@@ -11,29 +12,6 @@ import marked from 'marked';
 import highlight from 'highlight.js'
 import { DomSanitizer } from '@angular/platform-browser'
 
-const test = function (json) {
-  if (typeof json !== 'string') {
-    json = JSON.stringify(json, null, 2)
-  }
-  json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>')
-  let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g
-  return json.replace(reg, (match) => {
-    let cls = 'number'
-    if (/^"/.test(match)) {
-      if (/:$/.test(match)) {
-        cls = 'key'
-      } else {
-        cls = 'string'
-      }
-    } else if (/true|false/.test(match)) {
-      cls = 'boolean'
-    } else if (/null/.test(match)) {
-      cls = 'null'
-    }
-    return '<span class="' + cls + '">' + match + '</span>'
-  })
-}
-
 @Directive({
   selector: '[previewHeight]'
 })
@@ -44,14 +22,6 @@ export class CalculationContentHeightDirective {
     el.nativeElement.style.height = window.innerHeight - 170 + 'px'
     el.nativeElement.style.maxHeight = window.innerHeight - 170 + 'px'
     el.nativeElement.style.overflow = 'auto'
-    
-    setTimeout(() => {
-      let codeList = el.nativeElement.querySelectorAll('code')
-      codeList.forEach((element) => {
-        // console.log(test(element.innerText))
-      })
-    })
-
   }
 }
 
@@ -62,6 +32,7 @@ export class CalculationContentHeightDirective {
   encapsulation: ViewEncapsulation.None
 })
 export class AddLinkNoteComponent implements OnInit {
+  dropdownMenuSub: Subscription
   isShowMarkdownEditor = false
   dropdownMenu = []
   labelList = []
@@ -79,9 +50,13 @@ export class AddLinkNoteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tagService._getTagList().subscribe((res) => {
-      this.dropdownMenu = res.data
+    this.dropdownMenuSub = this.tagService.tagList$.subscribe((data) => {
+      this.dropdownMenu = data
     })
+  }
+
+  ngOnDestroy() {
+    this.dropdownMenuSub.unsubscribe()
   }
 
   onEnter(value){
@@ -95,14 +70,11 @@ export class AddLinkNoteComponent implements OnInit {
 
       marked(data.content, function (err, content) {
         if (err) throw err;
-        // console.log(content);
       });
 
       this.loadingBar.$Loading.finish()
       this.isShowMarkdownEditor = true
       this.noteTitle = data.title
-      // console.log(data.content)
-      // console.log(data.content)
       this.noteContent = data.content
 
     })

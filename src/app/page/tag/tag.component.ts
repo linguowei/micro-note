@@ -21,10 +21,6 @@ export class TagComponent implements OnInit {
     this.tagListSub = this.tagService.tagList$.subscribe((data) => {
       this.tagList = data
     })
-
-    this.tagService._getTagList().subscribe((res) => {
-      this.tagList = res.data
-    })
   }
   
   ngOnDestroy() { 
