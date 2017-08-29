@@ -73,10 +73,10 @@ export class EditNoteComponent implements OnInit {
         sourceLink: '',
         _id: this.noteInfo._id
       }).subscribe((res) => {
-        if(res.code === 200){
+        if(res['code'] === 200){
           this.msg.info('修改成功！')
           this.noteService._updateAllNote()
-          localStorage.setItem('noteItemInfo', JSON.stringify(res.data))
+          localStorage.setItem('noteItemInfo', JSON.stringify(res['data']))
           this.router.navigate(['/viewNote'])
         }
       })

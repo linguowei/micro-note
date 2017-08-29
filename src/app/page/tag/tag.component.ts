@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { MsgService } from './../../services/msg/msg.service';
 import { TagService } from './../../services/tag/tag.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,8 @@ export class TagComponent implements OnInit {
   tagName: String = ''
   constructor(
     private tagService: TagService,
-    private msg: MsgService
+    private msg: MsgService,
+    private http: HttpClient
   ) { 
     
   }
@@ -23,6 +25,7 @@ export class TagComponent implements OnInit {
     this.tagListSub = this.tagService.tagList$.subscribe((data) => {
       this.tagList = data
     })
+
   }
   
   ngOnDestroy() { 

@@ -1,4 +1,5 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+// import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -8,7 +9,7 @@ export class TagService {
   tagList$ = new BehaviorSubject<Array<object>>(this.tagList)
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) {
     this.updateTagList()
   }
@@ -18,7 +19,6 @@ export class TagService {
     this.http.post('/api/addTag', {
       name: name
     })
-    .map(res => res.json())
     .subscribe((data) => {
       this.updateTagList()
     })
@@ -28,22 +28,20 @@ export class TagService {
   _deleteTag(id){
     this.http.post('/api/deleteTag', {
       id: id
-    }).map(res => res.json())
-      .subscribe((data) => {
+    }).subscribe((data) => {
         this.updateTagList()
       })
   }
   
   // 获取整个列表
   _getTagList(){
-    return this.http.get('/api/TagList').map(res => res.json())
+    return this.http.get('/api/TagList')
   }
 
   private updateTagList(){
     this.http.get('/api/TagList')
-      .map(res => res.json())
-      .subscribe((data) => {
-        this.tagList$.next(data.data)
+      .subscribe((res) => {
+        this.tagList$.next(res['data'])
       })
   }
 

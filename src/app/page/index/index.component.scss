@@ -1,0 +1,175 @@
+// .index{
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background-color: #fff;
+//   z-index: 100;
+//   width: 100vw;
+//   height: 100vh;
+//   display:table-cell;
+//   text-align:center;
+//   vertical-align:middle;
+//   background: #f7f7f7;
+//   .logo{
+//     height: 60vh;
+//     width: 100vw;
+//     display:table-cell;
+//     text-align:center;
+//     vertical-align:middle;
+//   }
+//   .name{
+//     padding: 10px 0;
+//     color: #34495e;
+//     font-size: 26px;
+//     font-family: fantasy;
+//   }
+//   .introduction{
+//     font-weight: bold;
+//     color: #34495e;
+//     font-size: 15px;
+//     font-family: serif;
+//     margin-top: 5px;
+//   }
+//   .start{
+//     a{
+//       font-size: 15px;
+//       border: 1px solid #3db8c1;
+//       padding: 8px;
+//       border-radius: 5px;
+//     }
+//     .github{
+//       color: #3db8c1;
+//       margin-right: 15px;
+//     }
+//     .started{
+//       color: #fff;
+//       background-color: #3db8c1;
+//       margin-left: 15px;
+//     }
+//   }
+// }
+
+.login-wrap {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .login-title {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -230px;
+    text-align: center;
+    font-size: 40px;
+    color: #3db8c1;
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .login-panel {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    height: 160px;
+    margin: -150px 0 0 -190px;
+    padding: 40px;
+    border-radius: 5px;
+    background: #f5f5f5;
+    text-align: center;
+    .login-name {
+      margin-bottom: 1rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      background-image: none;
+      border-radius: 4px;
+      border: 1px solid #bfcbd9;
+      box-sizing: border-box;
+      color: #1f2d3d;
+      display: block;
+      font-size: inherit;
+      height: 36px;
+      line-height: 1;
+      outline: 0;
+      padding: 3px 10px;
+      transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+      width: 100%;
+    }
+    .login-pwd {
+      margin-bottom: 1rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      background-image: none;
+      border-radius: 4px;
+      border: 1px solid #bfcbd9;
+      box-sizing: border-box;
+      color: #1f2d3d;
+      display: block;
+      font-size: inherit;
+      height: 36px;
+      line-height: 1;
+      outline: 0;
+      padding: 3px 10px;
+      transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+      width: 100%;
+    }
+    .login-submit {
+      width: 300px;
+      color: #fff;
+      display: inline-block;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      background: #fff;
+      border: none;
+      -webkit-appearance: none;
+      text-align: center;
+      box-sizing: border-box;
+      outline: 0;
+      margin: 0;
+      padding: 10px 15px;
+      font-size: 14px;
+      border-radius: 4px;
+      background-color: #3db8c1;
+    }
+    .case-number {
+      margin-top: 1rem;
+      font-size: 14px;
+      color: #5d5d5d;
+    }
+  }
+}
+
+.github{
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  width: 120px;
+  height: 30px;
+  background-color: #3db8c1;
+  transform: rotate(45deg);
+  a{
+    color: #000;
+  }
+  i{
+    font-size: 29px;
+    position: absolute;
+    top: -6px;
+    right: 51px;
+    z-index: 20;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.05, 1.05)
+    }
+  }
+}
+
+
+

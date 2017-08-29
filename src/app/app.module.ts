@@ -1,8 +1,9 @@
+import { GlobalResponseInterceptor } from './interceptor/global-response-interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpModule } from '@angular/http';
 import { FormsModule } from "@angular/forms";
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // customize module
 import { AppRoutingModule } from './app-routing.module';
@@ -45,16 +46,26 @@ import { TagService } from './services/tag/tag.service';
     ClassificationComponent, 
     ViewNoteComponent, 
     EditNoteComponent, 
-    FilterNoteContentPipe
+    FilterNoteContentPipe,
   ],
   imports: [
     BrowserModule,
-    HttpModule,  // http模块
+    HttpClientModule,  // http模块
     FormsModule, // 表单模块
     AppRoutingModule, // 路由配置模块
-    BrowserAnimationsModule, // 动画模块
+    BrowserAnimationsModule,// 动画模块 
   ],
-  providers: [LoadingBarService, TagService, NoteService, MsgService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalResponseInterceptor,
+      multi: true,
+    },
+    LoadingBarService, 
+    TagService, 
+    NoteService, 
+    MsgService,
+  ],
   bootstrap: [AppComponent], // 根组件
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

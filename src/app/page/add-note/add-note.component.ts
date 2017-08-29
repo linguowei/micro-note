@@ -60,12 +60,14 @@ export class AddNoteComponent implements OnInit {
         date: new Date(),
         sourceLink: ''
       }).subscribe((res) => {
-        if(res.code === 200){
+        // console.log(res)
+        // if(res.code === 200){
           this.msg.info('保存成功！')
           this.noteService._updateAllNote()
-          localStorage.setItem('noteItemInfo', JSON.stringify(res.data))
+          // localStorage.setItem('noteItemInfo', JSON.stringify(res.data))
           this.router.navigate(['/viewNote'])
-        }
+        // }
+
       })
     }
   }

@@ -1,0 +1,33 @@
+<!-- <div class="index">
+  <div class="logo">
+    <img src="../../assets/logo.svg">
+    <div class="name">Micro-note</div>
+    <div class="introduction">简约型笔记应用</div>
+    <div class="introduction">支持链接动态生成文章</div>
+    <div class="introduction">支持搜索、标签分类管理等</div>
+  </div>
+  <div class="start">
+    <a href="https://github.com/linguowei/micro-note" target="_blank" class="github">GitHub</a>
+    <a [routerLink]="['/addNote']" class="started">Get Started</a>
+  </div>
+</div> -->
+
+<div id="login">
+  <div class="login-wrap">
+      <div class="login-title">
+        <img src="../../assets/logo.svg">
+        Micro-note
+      </div>
+      <div class="login-panel">
+        <input type="text" class="login-name" placeholder="username" [(ngModel)]="name">
+        <input type="password" class="login-pwd" placeholder="password" (keydown.enter)="login()" [(ngModel)]="pwd">
+        <button type="submit" class="login-submit" (click)="login()">Login</button>
+        <div class="case-number">tips 账号:admin 密码: 123456</div>
+      </div>
+  </div>
+</div>
+<div class="github">
+  <a href="https://github.com/linguowei/micro-note" target="_blank">
+    <i class="ion-social-github"></i>
+  </a>
+</div>

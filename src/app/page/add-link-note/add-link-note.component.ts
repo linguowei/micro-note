@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { MsgService } from './../../services/msg/msg.service';
@@ -6,7 +7,6 @@ import { style } from '@angular/animations';
 import { TagService } from './../../services/tag/tag.service';
 import { LoadingBarService } from './../../services/loading-bar/loading-bar.service';
 import { Component, OnInit, ViewEncapsulation, Directive, ElementRef } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import marked from 'marked';
 import highlight from 'highlight.js'
@@ -42,7 +42,7 @@ export class AddLinkNoteComponent implements OnInit {
   constructor(
     private tagService: TagService,
     private loadingBar : LoadingBarService,
-    private http: Http,
+    private http: HttpClient,
     private sanitizer: DomSanitizer,
     private noteService: NoteService,
     private msg: MsgService,
@@ -65,17 +65,16 @@ export class AddLinkNoteComponent implements OnInit {
     this.http.post('/api/generateNote', {
       link: value
     })
-    .map(res => res.json())
     .subscribe((data) => {
 
-      marked(data.content, function (err, content) {
+      marked(data['content'], function (err, content) {
         if (err) throw err;
       });
 
       this.loadingBar.$Loading.finish()
       this.isShowMarkdownEditor = true
-      this.noteTitle = data.title
-      this.noteContent = data.content
+      this.noteTitle = data['title']
+      this.noteContent = data['content']
 
     })
   }
@@ -92,10 +91,10 @@ export class AddLinkNoteComponent implements OnInit {
         date: new Date(),
         sourceLink: this.sourceLink
       }).subscribe((res) => {
-        if(res.code === 200){
+        if(res['code'] === 200){
           this.msg.info('保存成功！')
           this.noteService._updateAllNote()
-          localStorage.setItem('noteItemInfo', JSON.stringify(res.data))
+          localStorage.setItem('noteItemInfo', JSON.stringify(res['data']))
           this.router.navigate(['/viewNote'])
         }
       })

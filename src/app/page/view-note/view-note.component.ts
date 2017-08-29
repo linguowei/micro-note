@@ -82,7 +82,7 @@ export class ViewNoteComponent implements OnInit {
   confirmDelete(){
     let id = this.noteInfo._id
     this.noteService._deleteNote(id).subscribe((res) => {
-      if(res.data.ok === 1){
+      if(res['data'].ok === 1){
         this.isShowDelect = false
         this.msgService.info('删除成功！')
         this.noteService._updateAllNote()
