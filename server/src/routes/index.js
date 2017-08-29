@@ -15,6 +15,19 @@ const successState = {
 	data: ''
 }
 
+router.get('/api/test', async (ctx, next) => {
+	console.log(ctx.cookies)
+	ctx.body = ctx.session
+})
+
+router.get('/api/login', async (ctx, next) => {
+	ctx.session = {
+		user_id: Math.random().toString(36).substr(2),
+		count: 0
+	}
+	ctx.body = ctx.session
+})
+
 /**
  * 笔记 C、R、U、D
  */
