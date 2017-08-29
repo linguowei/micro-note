@@ -15,4 +15,4 @@
 #浏览器访问 localhost:3001
 ```
 ### License
-[MIT](https://www.oschina.net/question/54100_9455)
+[GPL 禁止商用](https://www.oschina.net/question/54100_9455)
