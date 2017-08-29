@@ -12,7 +12,7 @@
 # npm run build
 # cd /server
 # npm run dev
-#浏览器访问 localhost:3001
+# 浏览器访问 localhost:3001
 ```
 ### License
 [GPL 禁止商用](https://www.oschina.net/question/54100_9455)
