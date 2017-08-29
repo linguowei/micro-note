@@ -2,12 +2,13 @@
 
 # MicroNote
 
-基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](lweiwei.com:3001)
+基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](https://lweiwei.com:3001)
 ### 本地查看方法
+(本地要安装mongodb，并且启动mongodb服务)
 
 ``` bash
 # git clone https://github.com/linguowei/micro-note.git
-# npm install 或者 yarn install 注意不要用cnpm
+# npm install 或者 yarn install   注意不要用cnpm！！
 # npm run build
 # cd /server
 # npm run dev
