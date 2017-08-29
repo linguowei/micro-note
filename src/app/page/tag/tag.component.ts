@@ -1,3 +1,4 @@
+import { MsgService } from './../../services/msg/msg.service';
 import { TagService } from './../../services/tag/tag.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from "rxjs/Subscription";
@@ -12,7 +13,8 @@ export class TagComponent implements OnInit {
   tagList = []
   tagName: String = ''
   constructor(
-    private tagService: TagService
+    private tagService: TagService,
+    private msg: MsgService
   ) { 
     
   }
@@ -28,8 +30,12 @@ export class TagComponent implements OnInit {
   }
 
   addTag(value){
-    this.tagService._addTag(value)
-    this.tagName = ''
+    if(value !== ''){
+      this.tagService._addTag(value)
+      this.tagName = ''
+    }else{
+      this.msg.info('标签名字不能为空！')
+    }
   }
 
   delectTagItem(id){
