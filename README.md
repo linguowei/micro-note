@@ -1,8 +1,8 @@
-![](http://ouo33aiyh.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-29%2009.41.31.png)
+![预览图](http://ouo33aiyh.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-30%2014.32.10.png)
 
 # MicroNote
 
-基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](http://lweiwei.com:3001)
+基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](https://weiweinote.cn)
 ### 本地查看方法
 (本地要安装mongodb，并且启动mongodb服务)
 
