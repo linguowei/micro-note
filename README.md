@@ -1,4 +1,4 @@
-![](http://ouo33aiyh.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-30%2014.28.54.png)
+![预览图](http://ouo33aiyh.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-30%2014.32.10.png)
 
 # MicroNote
 
