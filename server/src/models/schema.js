@@ -1,6 +1,7 @@
 const db = require('./db')
 
 const noteSchema = new db.Schema({
+  user_name: String,
   title: String,
   content: String,
   tag: Array,
@@ -9,6 +10,7 @@ const noteSchema = new db.Schema({
 })
 
 const tagSchema = new db.Schema({
+  user_name: String,
   name: String
 })
 

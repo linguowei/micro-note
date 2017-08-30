@@ -18,11 +18,11 @@ app.use(staticCache({
 }))
 
 let cookie = {
-  maxAge: 1 * 60 * 1000, // cookie有效时长
+  maxAge: 5 * 60 * 1000, // cookie有效时长
   expires: '',  // cookie失效时间
   path: '', // 写cookie所在的路径
   domain: '', // 写cookie所在的域名
-  httpOnly: '', // 是否只用于http请求中获取
+  httpOnly: true, // 是否只用于http请求中获取
   overwrite: '',  // 是否允许重写
   secure: '',
   sameSite: '',
@@ -30,7 +30,7 @@ let cookie = {
 }
 app.use(session({
   key: 'SESSION_ID',
-  store: new MongoStore(),
+  store: new MongoStore({}),
   cookie: cookie
 }))
 

@@ -30,9 +30,23 @@
         <div class="ion-android-search icon"></div>搜索
       </a>
     </li>
+    <li class="personal-center">
+      <a class="ion-navicon" (click)="personalCenter($event)"></a>
+    </li>
+    <li class="personal-center-content" (click)="personalCenterContent($event)" *ngIf="isShowAccount">
+      <div class="title">
+        <i class="ion-happy-outline"></i>
+        <div>
+          {{userName}}
+        </div>
+      </div>
+      <div class="logout" (click)="logout()">
+        <span class="ion-android-exit"></span>
+        退出登录
+      </div>
+    </li>
   </ul>
 </div>
 <div class="content-wrap">
   <router-outlet></router-outlet>
 </div>
-<app-msg></app-msg>

@@ -30,6 +30,7 @@ export class IndexComponent implements OnInit {
         this.msg.info(res['msg'])
       }else{
         this.router.navigate(['/addNote'])
+        localStorage.setItem('userName', this.name)
       }
     })
   }

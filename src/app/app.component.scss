@@ -4,11 +4,10 @@
 .left-menu{
   width: 60px;
   height: 100vh;
-  // border-right: 1px solid #ececec;
   box-shadow: 0 1px 6px #ccc;
+  background-color: #fff;
   float: left;
   ul{
-    // padding: 7px;
     li{
       text-align: center;
       padding: 15px 0;
@@ -22,6 +21,46 @@
       };
       .router-active{
         color: #404040;
+      }
+    }
+    .personal-center{
+      width: 60px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      a{
+        font-size: 26px;
+      }
+    }
+    .personal-center-content{
+      width: 130px;
+      height: 120px;
+      position: absolute;
+      bottom: 10px;
+      left: 65px;
+      background-color: #fff;
+      box-shadow: 0 1px 6px #ccc;
+      border-radius: 3px;
+      z-index: 30;
+      padding: 5px;
+      .title{
+        height: 50px;
+        border-bottom: 1px #ececec solid;
+        i{
+          font-size: 20px;
+          color: #71777c;
+        }
+      }
+      .logout{
+        text-align: left;
+        padding: 5px;
+        font-size: 14px;
+        color: #4a4a4a;
+        margin-top: 10px;
+        &:hover{
+          background-color: #3db8c1;
+          color: #fff;
+        }
       }
     }
   };
