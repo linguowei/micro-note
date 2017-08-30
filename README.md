@@ -1,30 +1,18 @@
-![](http://ouo33aiyh.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-17%2023.04.11.png)
+![](http://ouo33aiyh.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-29%2009.41.31.png)
 
 # MicroNote
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.7.
+基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](http://lweiwei.com:3001)
+### 本地查看方法
+(本地要安装mongodb，并且启动mongodb服务)
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+``` bash
+# git clone https://github.com/linguowei/micro-note.git
+# npm install 或者 yarn install   注意不要用cnpm！！
+# npm run build
+# cd /server
+# npm run dev
+# 浏览器访问 localhost:3001
+```
+### License
+[GPL 禁止商用](https://www.oschina.net/question/54100_9455)
