@@ -2,7 +2,7 @@
 
 # MicroNote
 
-基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](http://lweiwei.com:3001)
+基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](https://weiweinote.cn)
 ### 本地查看方法
 (本地要安装mongodb，并且启动mongodb服务)
 
