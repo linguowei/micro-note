@@ -19,6 +19,7 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
   
   login(){
@@ -29,7 +30,7 @@ export class IndexComponent implements OnInit {
       if(res['code'] !== 200){
         this.msg.info(res['msg'])
       }else{
-        this.router.navigate(['/addNote'])
+        this.router.navigate(['/addLinkNote'])
         localStorage.setItem('userName', this.name)
       }
     })

@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-// import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -11,7 +10,7 @@ export class TagService {
   constructor(
     private http: HttpClient
   ) {
-    this.updateTagList()
+    this._updateTagList()
   }
   
   // 新增
@@ -20,7 +19,7 @@ export class TagService {
       name: name
     })
     .subscribe((data) => {
-      this.updateTagList()
+      this._updateTagList()
     })
   }
   
@@ -29,7 +28,7 @@ export class TagService {
     this.http.post('/api/deleteTag', {
       id: id
     }).subscribe((data) => {
-        this.updateTagList()
+        this._updateTagList()
       })
   }
   
@@ -38,7 +37,7 @@ export class TagService {
     return this.http.get('/api/TagList')
   }
 
-  private updateTagList(){
+  _updateTagList(){
     this.http.get('/api/TagList')
       .subscribe((res) => {
         this.tagList$.next(res['data'])

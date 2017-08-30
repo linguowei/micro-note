@@ -7,9 +7,9 @@
       <div class="add-note-toolbar-dropdown">
         <app-dropdown [Label]="'标签'" [DropdownMenu]="dropdownMenu" (SelectItem)="selectItem($event)"></app-dropdown>
       </div>
-      <ul class="add-note-toolbar-labellist">
-        <li *ngFor="let item of tagList; let i=index">
-          <span>{{item.name}}</span>
+      <ul class="tag-list-wrap">
+        <li class="tag-item" *ngFor="let item of tagList; let i=index">
+          <div>{{item.name}}</div>
           <i class="ion-close-round" (click)="delectLabelItem(i)"></i>
         </li>
       </ul>
