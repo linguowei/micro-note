@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit {
-  name: string = ''
-  pwd: string = ''
+  name = '';
+  pwd = '';
 
   constructor(
     private http: HttpClient,
@@ -21,18 +21,18 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
 
   }
-  
-  login(){
+
+  login() {
     this.http.post('/api/login', {
       name: this.name,
       pwd: this.pwd
     }).subscribe((res) => {
-      if(res['code'] !== 200){
-        this.msg.info(res['msg'])
-      }else{
-        this.router.navigate(['/addLinkNote'])
-        localStorage.setItem('userName', this.name)
+      if (res['code'] !== 200) {
+        this.msg.info( res['msg'] );
+      } else {
+        this.router.navigate(['/addLinkNote']);
+        localStorage.setItem('userName', this.name);
       }
-    })
+    });
   }
 }

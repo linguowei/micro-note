@@ -2,7 +2,7 @@ import { GlobalResponseInterceptor } from './interceptor/global-response-interce
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // customize module
@@ -40,12 +40,12 @@ import { TagService } from './services/tag/tag.service';
     MarkdownEditorDirective,
     CalculationContentHeightDirective,
     ClassificationTabsContentHeightDirective,
-    DropdownComponent, 
-    ButtonComponent, 
-    TagComponent, 
-    ClassificationComponent, 
-    ViewNoteComponent, 
-    EditNoteComponent, 
+    DropdownComponent,
+    ButtonComponent,
+    TagComponent,
+    ClassificationComponent,
+    ViewNoteComponent,
+    EditNoteComponent,
     FilterNoteContentPipe,
   ],
   imports: [
@@ -53,7 +53,7 @@ import { TagService } from './services/tag/tag.service';
     HttpClientModule,  // http模块
     FormsModule, // 表单模块
     AppRoutingModule, // 路由配置模块
-    BrowserAnimationsModule,// 动画模块 
+    BrowserAnimationsModule, // 动画模块
   ],
   providers: [
     {
@@ -61,9 +61,9 @@ import { TagService } from './services/tag/tag.service';
       useClass: GlobalResponseInterceptor,
       multi: true,
     },
-    LoadingBarService, 
-    TagService, 
-    NoteService, 
+    LoadingBarService,
+    TagService,
+    NoteService,
     MsgService,
   ],
   bootstrap: [AppComponent], // 根组件

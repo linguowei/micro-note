@@ -6,12 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit {
-  @Input() Icon: string
+  @Input() Icon: string;
   constructor() {
   }
 
   ngOnInit() {
   }
-  
+
 }
 

@@ -7,7 +7,12 @@
   margin: 0;
   padding: 0;
   line-height: 1.5;
+  &::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+  }
 }
+
 body{
   font-size: 12px;
   font-family: -apple-system,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",sans-serif;

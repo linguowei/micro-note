@@ -52,6 +52,10 @@
   height: 32px;
   max-height: 32px;
   overflow: scroll;
+  &::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+  }
   .tag-item{
     height: 25px;
     line-height: 25px;

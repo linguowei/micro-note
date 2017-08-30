@@ -24,31 +24,31 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class DropdownComponent implements OnInit {
   dropdownMenu = {
     state: 'inactive'
-  }
+  };
   @Input() Label: string;
   @Input() DropdownMenu: Array<dropdownItem>;
   @Output() SelectItem = new EventEmitter<any>();
   constructor() { }
-  
+
   ngOnInit() {
   }
-  
-  documentClick(e){
-    this.dropdownMenu.state = 'inactive'
-    e.stopPropagation()
+
+  documentClick(e) {
+    this.dropdownMenu.state = 'inactive';
+    e.stopPropagation();
   }
 
-  toggleDropdownMenu(e): void{
-    this.dropdownMenu.state == 'active' ? this.dropdownMenu.state = 'inactive' : this.dropdownMenu.state = 'active'
-    e.stopPropagation()
+  toggleDropdownMenu(e) {
+    this.dropdownMenu.state === 'active' ? this.dropdownMenu.state = 'inactive' : this.dropdownMenu.state = 'active';
+    e.stopPropagation();
   }
-  selectItem(data): void{
-    this.dropdownMenu.state = 'inactive'
-    this.SelectItem.emit(data)
+  selectItem(data) {
+    this.dropdownMenu.state = 'inactive';
+    this.SelectItem.emit(data);
   }
 }
 
 export interface dropdownItem {
-  name: object,
-  id: number
+  name: object;
+  id: number;
 }

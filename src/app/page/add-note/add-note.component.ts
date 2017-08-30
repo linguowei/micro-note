@@ -3,7 +3,7 @@ import { MsgService } from './../../services/msg/msg.service';
 import { Subscription } from 'rxjs/Subscription';
 import { NoteService } from '../../services/note/note.service';
 import { TagService } from './../../services/tag/tag.service';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { dropdownItem } from '../../component/dropdown/dropdown.component';
 
 @Component({
@@ -12,12 +12,12 @@ import { dropdownItem } from '../../component/dropdown/dropdown.component';
   styleUrls: ['./add-note.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddNoteComponent implements OnInit {
-  dropdownMenuSub: Subscription
-  dropdownMenu = []
-  title = ''
-  content = ''
-  tagList = []
+export class AddNoteComponent implements OnInit, OnDestroy {
+  dropdownMenuSub: Subscription;
+  dropdownMenu = [];
+  title = '';
+  content = '';
+  tagList = [];
 
   constructor(
     private tagService: TagService,
@@ -28,45 +28,45 @@ export class AddNoteComponent implements OnInit {
 
   ngOnInit() {
     this.dropdownMenuSub = this.tagService.tagList$.subscribe((data) => {
-      this.dropdownMenu = data
-    })
+      this.dropdownMenu = data;
+    });
   }
 
   ngOnDestroy() {
-    this.dropdownMenuSub.unsubscribe()
-  }
-  
-  selectItem(data){
-    this.tagList.push(data)
-  }
-  
-  delectLabelItem(index){
-    this.tagList.splice(index, 1)
+    this.dropdownMenuSub.unsubscribe();
   }
 
-  markdownValueChange(data){
-    this.content = data
+  selectItem(data) {
+    this.tagList.push(data);
+  }
+
+  delectLabelItem(index) {
+    this.tagList.splice(index, 1);
+  }
+
+  markdownValueChange(data) {
+    this.content = data;
   }
 
   // 保存笔记
-  save(){
-    if (this.title === '' || this.content === '' || this.tagList.length === 0){
-      this.msg.info('请输入完整的笔记信息！')
+  save() {
+    if (this.title === '' || this.content === '' || this.tagList.length === 0) {
+      this.msg.info('请输入完整的笔记信息！');
     } else {
-      let sub = this.noteService._addNote({
+      const sub = this.noteService._addNote({
         title: this.title,
         content: this.content,
         tag: this.tagList,
         date: new Date(),
         sourceLink: ''
       }).subscribe((res) => {
-        if(res['code'] === 200){
-          this.msg.info('保存成功！')
-          this.noteService._updateAllNote()
-          localStorage.setItem('noteItemInfo', JSON.stringify(res['data']))
-          this.router.navigate(['/viewNote'])
+        if (res['code'] === 200) {
+          this.msg.info('保存成功！');
+          this.noteService._updateAllNote();
+          localStorage.setItem('noteItemInfo', JSON.stringify(res['data']));
+          this.router.navigate(['/viewNote']);
         }
-      })
+      });
     }
   }
 }
