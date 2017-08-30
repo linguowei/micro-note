@@ -442,6 +442,10 @@ span.CodeMirror-selectedtext {
     font: inherit;
     z-index: 1;
     background-color: #f7f7f7;
+    &::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+    }
 }
 
 .CodeMirror-scroll {

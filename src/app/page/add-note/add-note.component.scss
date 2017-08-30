@@ -31,49 +31,57 @@
   width: 100%;
   display: flex;
   align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ececec;
 }
 .add-note-toolbar-label{
-  width: 75%;
+  width: 80%;
+  height: 32px;
+  line-height: 32px;
 }
 .add-note-toolbar-dropdown{
   width: 150px;
   float: left;
+  padding-top: 8px;
 }
-.add-note-toolbar-labellist{
+.tag-list-wrap{
   width: 70%;
   max-width: 70%;
-  overflow: hidden;
   display: flex;
-  li{
-    margin: 0 3px;
-    white-space: nowrap;
-    text-align: center;
-    border: 1px solid #ececec;
-    border-radius: 3px;
-    padding: 0 6px;
-    a{
-      font-size: 13px;
-      color: #808b96;
+  flex-wrap: wrap;
+  height: 32px;
+  max-height: 32px;
+  overflow: scroll;
+  .tag-item{
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 3px 3px;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    div{
+      line-height: 25px;
+      padding: 0 14px;
     };
     i{
+      line-height: 25px;
+      padding: 0 6px;
+      border-left: 1px solid #ccc;
       font-size: 12px;
-      cursor: pointer;
-      border-left: 1px solid #ececec;
       color: #ccc;
-      &:hover{
-        color: #808b96;
-      };
-      &::before{
-        margin-left: 4px;
-      }
     };
-  };
-  &::-webkit-scrollbar{
-    width: 0px;
+    i:hover{
+      color: #808b96;
+    }
+    &:hover{
+      box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+    }
   }
 }
 .add-note-toolbar-btn{
-  width: 25%;
+  width: 20%;
   align-self: flex-end;
   app-button{
     float: right;

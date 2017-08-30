@@ -140,8 +140,8 @@ export class MarkdownEditorDirective {
       })
       simpleMDE.value(this.inputMarkdownEditorValue)
       // simpleMDE.togglePreview()
-      el.nativeElement.querySelector('.CodeMirror').style.height = window.innerHeight - 200 + 'px';
-      el.nativeElement.querySelector('.CodeMirror').style.maxHeight = window.innerHeight - 200 + 'px';
+      el.nativeElement.querySelector('.CodeMirror').style.height = window.innerHeight - 220 + 'px';
+      el.nativeElement.querySelector('.CodeMirror').style.maxHeight = window.innerHeight - 220 + 'px';
       el.nativeElement.querySelector('.CodeMirror').style.overflow = 'auto'
     })
   }

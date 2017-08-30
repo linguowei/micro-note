@@ -36,6 +36,7 @@ a:hover, a:visited, a:link, a:active {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 103;
   .msg-content{
     border-radius: 4px;
     box-shadow: 0px 0px 6px #ccc;

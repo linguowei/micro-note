@@ -1,61 +1,12 @@
-// .index{
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   background-color: #fff;
-//   z-index: 100;
-//   width: 100vw;
-//   height: 100vh;
-//   display:table-cell;
-//   text-align:center;
-//   vertical-align:middle;
-//   background: #f7f7f7;
-//   .logo{
-//     height: 60vh;
-//     width: 100vw;
-//     display:table-cell;
-//     text-align:center;
-//     vertical-align:middle;
-//   }
-//   .name{
-//     padding: 10px 0;
-//     color: #34495e;
-//     font-size: 26px;
-//     font-family: fantasy;
-//   }
-//   .introduction{
-//     font-weight: bold;
-//     color: #34495e;
-//     font-size: 15px;
-//     font-family: serif;
-//     margin-top: 5px;
-//   }
-//   .start{
-//     a{
-//       font-size: 15px;
-//       border: 1px solid #3db8c1;
-//       padding: 8px;
-//       border-radius: 5px;
-//     }
-//     .github{
-//       color: #3db8c1;
-//       margin-right: 15px;
-//     }
-//     .started{
-//       color: #fff;
-//       background-color: #3db8c1;
-//       margin-left: 15px;
-//     }
-//   }
-// }
-
 .login-wrap {
   width: 100vw;
   height: 100vh;
   background-color: #fff;
   position: fixed;
+  display: block;
   top: 0;
   left: 0;
+  z-index: 100;
   .login-title {
     position: absolute;
     top: 50%;
@@ -148,22 +99,23 @@
 }
 
 .github{
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: -40px;
   width: 120px;
   height: 30px;
   background-color: #3db8c1;
   transform: rotate(45deg);
+  z-index: 101;
   a{
     color: #000;
   }
   i{
     font-size: 29px;
-    position: absolute;
+    position: fixed;
     top: -6px;
     right: 51px;
-    z-index: 20;
+    z-index: 101;
     cursor: pointer;
     &:hover{
       transform: scale(1.05, 1.05)

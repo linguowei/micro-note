@@ -32,6 +32,7 @@ export class ViewNoteComponent implements OnInit {
   ) {  }
 
   ngOnInit() {
+    this.noteInfo.sourceLink === '' ? this.isShowEdit = true : this.isShowEdit = false
     this.noteInfo = JSON.parse(localStorage.getItem('noteItemInfo'))
     this.noteInfo.content = marked(this.noteInfo.content)
     let contentDom = this.parseDom(this.noteInfo.content) // 把html字符串装换成DOM
@@ -51,6 +52,7 @@ export class ViewNoteComponent implements OnInit {
     let previewDom  = <HTMLElement>document.querySelector('.preview')
     let catalogDom = <HTMLElement>document.querySelector('.catalog-wrap')
     previewDom.appendChild(contentDom)
+    if(this.catalog.length===0)return;
     previewDom.addEventListener('scroll', this.throttle(() => {
       this.catalog.forEach((item, index) => {
         if(index !== this.catalog.length-1){
@@ -68,7 +70,7 @@ export class ViewNoteComponent implements OnInit {
       let activeDom = <HTMLElement>catalogDom.querySelector('.active')
       catalogDom.scrollTop = activeDom.offsetTop - window.innerHeight/2
     }, 200))
-    this.noteInfo.sourceLink === '' ? this.isShowEdit = true : this.isShowEdit = false
+    
   }
   
   delect(){

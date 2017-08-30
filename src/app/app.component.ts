@@ -21,9 +21,12 @@ export class AppComponent {
     private msg: MsgService,
     private router: Router
   ){
+  }
+
+  ngDoCheck(){
     this.userName = localStorage.getItem('userName')
   }
-  
+
   personalCenter(e){
     this.isShowAccount = !this.isShowAccount
     e.stopPropagation()
