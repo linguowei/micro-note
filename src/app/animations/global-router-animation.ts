@@ -18,4 +18,4 @@ trigger('routeAnimation', [
       query(':enter', animate('.5s ease-in-out', style({transform: 'translateX(0)'})), { optional: true })
     ])
   ])
-])
+]);

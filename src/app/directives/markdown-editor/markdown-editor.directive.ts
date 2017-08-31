@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import SimpleMDE from 'simplemde';
 import marked from 'marked';
+import highlight from 'highlight.js';
 
 @Directive({
   selector: '[myMarkdownEditor]'
@@ -17,8 +18,22 @@ export class MarkdownEditorDirective {
         autofocus: false,
         autosave: true,
         previewRender: function(plainText) {
-          return marked(plainText); // Returns HTML from a custom parser
+          // return marked(plainText);
+          return marked(plainText, {
+            renderer: new marked.Renderer(),
+            gfm: true,
+            pedantic: false,
+            sanitize: false,
+            tables: true,
+            breaks: true,
+            smartLists: true,
+            smartypants: true,
+            highlight: function (code) {
+              return highlight.highlightAuto(code).value;
+            }
+          });
         },
+        // tslint:disable-next-line:max-line-length
         toolbar: ['bold', 'italic', 'strikethrough', 'heading', 'code', 'quote', 'unordered-list', 'ordered-list', 'clean-block', 'link', 'image', 'table', 'horizontal-rule', 'preview', {
           name: 'side-by-side',
           action: function(editor){
