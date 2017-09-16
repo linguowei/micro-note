@@ -18,7 +18,6 @@ export class MarkdownEditorDirective {
         autofocus: false,
         autosave: true,
         previewRender: function(plainText) {
-          // return marked(plainText);
           return marked(plainText, {
             renderer: new marked.Renderer(),
             gfm: true,
@@ -33,7 +32,6 @@ export class MarkdownEditorDirective {
             }
           });
         },
-        // tslint:disable-next-line:max-line-length
         toolbar: ['bold', 'italic', 'strikethrough', 'heading', 'code', 'quote', 'unordered-list', 'ordered-list', 'clean-block', 'link', 'image', 'table', 'horizontal-rule', 'preview', {
           name: 'side-by-side',
           action: function(editor){
@@ -41,13 +39,13 @@ export class MarkdownEditorDirective {
             const wrapper = cm.getWrapperElement();
             const preview = wrapper.nextSibling;
             const toolbarButton = editor.toolbarElements['side-by-side'];
-            const useSideBySideListener = false;
+            let useSideBySideListener = false;
             if (/editor-preview-active-side/.test(preview.className)) {
               preview.className = preview.className.replace(
                 /\s*editor-preview-active-side\s*/g, ''
               );
               toolbarButton.className = toolbarButton.className.replace(/\s*active\s*/g, '');
-              wrapper.className = wrapper.className.replace(/\s*CodeMirror-sided\s*/g, '');
+              wrapper.className = wrapper.className.replace(/\s*CodeMirror-sided\s*/g, ' ');
             } else {
               // When the preview button is clicked for the first time,
               // give some time for the transition from editor.css to fire and the view to slide from right to left,
@@ -55,20 +53,22 @@ export class MarkdownEditorDirective {
               setTimeout(function() {
                 if (!cm.getOption('fullScreen')) {
                   simpleMDE.toggleFullScreen(editor);
-                  const fullscreenDom = <HTMLElement>document.querySelector('.CodeMirror-fullscreen');
+                }
+
+                const fullscreenDom = <HTMLElement>document.querySelector('.CodeMirror-fullscreen');
                   if (!fullscreenDom) {
                     return;
                   }
                   fullscreenDom.style.height = window.innerHeight - 70 + 'px';
                   fullscreenDom.style.maxHeight = window.innerHeight - 70 + 'px';
-                }
-                preview.className += 'editor-preview-active-side';
+                preview.className += ' editor-preview-active-side';
               }, 1);
-              toolbarButton.className += 'active';
-              wrapper.className += 'CodeMirror-sided';
+              toolbarButton.className += ' active';
+              wrapper.className += ' CodeMirror-sided';
+              useSideBySideListener = true;
             }
+
             // Hide normal preview if active
-            // tslint:disable-next-line:prefer-const
             const previewNormal = wrapper.lastChild;
             if (/editor-preview-active/.test(previewNormal.className)) {
               previewNormal.className = previewNormal.className.replace(
@@ -110,8 +110,8 @@ export class MarkdownEditorDirective {
 
           	// Prevent scrolling on body during fullscreen active
             if (cm.getOption('fullScreen')) {
-                saved_overflow = document.body.style.overflow;
-                document.body.style.overflow = 'hidden';
+              saved_overflow = document.body.style.overflow;
+              document.body.style.overflow = 'hidden';
             } else {
               document.body.style.overflow = saved_overflow;
             }
@@ -120,12 +120,12 @@ export class MarkdownEditorDirective {
             const wrap = cm.getWrapperElement();
 
             if (!/fullscreen/.test(wrap.previousSibling.className)) {
-              wrap.previousSibling.className += 'fullscreen';
+              wrap.previousSibling.className += ' fullscreen';
             } else {
               wrap.previousSibling.className = wrap.previousSibling.className.replace(/\s*fullscreen\b/, '');
             }
 
-            // Update toolbar button
+          	// Update toolbar button
             const toolbarButton = editor.toolbarElements.fullscreen;
 
             if (!/active/.test(toolbarButton.className)) {
@@ -134,11 +134,12 @@ export class MarkdownEditorDirective {
               toolbarButton.className = toolbarButton.className.replace(/\s*active\s*/g, '');
             }
 
-            // Hide side by side if needed
+          	// Hide side by side if needed
             const sidebyside = cm.getWrapperElement().nextSibling;
             if (/editor-preview-active-side/.test(sidebyside.className)) {
               simpleMDE.toggleSideBySide(editor);
             }
+
             const fullscreenDom = <HTMLElement>document.querySelector('.CodeMirror-fullscreen');
             if (!fullscreenDom) {
               return;

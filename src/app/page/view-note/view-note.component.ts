@@ -4,6 +4,7 @@ import { MsgService } from './../../services/msg/msg.service';
 import { NoteService } from './../../services/note/note.service';
 import { Component, OnInit, ViewEncapsulation, ElementRef, Input } from '@angular/core';
 import marked from 'marked';
+import highlight from 'highlight.js';
 
 @Component({
   selector: 'app-view-note',
@@ -34,7 +35,20 @@ export class ViewNoteComponent implements OnInit {
   ngOnInit() {
     this.noteInfo = JSON.parse(localStorage.getItem('noteItemInfo'));
     this.noteInfo.sourceLink === '' ? this.isShowEdit = true : this.isShowEdit = false;
-    this.noteInfo.content = marked(this.noteInfo.content);
+    this.noteInfo.content =  marked(this.noteInfo.content, {
+      renderer: new marked.Renderer(),
+      gfm: true,
+      pedantic: false,
+      sanitize: false,
+      tables: true,
+      breaks: true,
+      smartLists: true,
+      smartypants: true,
+      highlight: function (code) {
+        return highlight.highlightAuto(code).value;
+      }
+    });
+
     const contentDom = this.parseDom(this.noteInfo.content); // 把html字符串装换成DOM
     // 提取笔记内容生成目录信息
     Array.prototype.slice.call(contentDom.querySelectorAll('h1,h2,h3,h4,h5,h6')).forEach((item, index) => {
