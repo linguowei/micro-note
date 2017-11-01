@@ -1,4 +1,4 @@
-## 笔记文章管理应用
+## 笔记文章管理应用 [说明](https://lweiwei.com/view/59b5f6947ee00a2998057748)
 
 基于`Angular4`+`koa2`实现的一个自动生成笔记文章的应用管理程序，在线预览[地址](https://weiweinote.cn)
 ### 开发
